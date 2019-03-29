@@ -1,0 +1,34 @@
+page-add-account {
+    .c-input-section{
+        .cardNum-btn{
+            display: block;
+            margin: 0;
+            font-size: .333333rem;
+            width: 2.083333rem;
+            height: .722222rem;
+            position: absolute;
+            right: .347222rem;
+            bottom: .658889rem;
+            background-color: #FAAF2C;
+            span{
+                font-size: .416667rem;
+            }
+        }
+        p.c-orange{
+            color: #FAAF2C;
+            line-height: .416667rem;
+            font-size: .333333rem;
+            margin-bottom: .347222rem;
+        }
+        .under-line{
+            border: 0;
+            border-radius: 0;
+            border-bottom: 1px solid #d3d3d3;
+        }
+    }
+    .c-submit-button{
+        span{
+            font-size: .416667rem;
+        }
+    }
+}

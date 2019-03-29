@@ -1,0 +1,115 @@
+<ion-content class="has-header-view">
+  <!-- 合同封面 -->
+  <div class="contrOneWrap">
+    <div class="textCent" style="font-weight: 900;">CARÁTULA DEL CRÉDITO NÚMERO:<span class="undeline">{{ info && info.orderNo }}</span></div>
+    <table width="100%" cellspacing="0" style="text-align: center;margin-top: .277778rem">
+      <tr>
+        <th colspan="4">
+          <p class="auTit">CRÉDITO PERSONAL</p>
+          <p style="margin:0;">Crédito simple.</p>
+        </th>
+      </tr>
+      <tr>
+        <td>CAT (Costo Anual Total)</td>
+        <td>TASA DE INTERÉS ANUAL</td>
+        <td>MONTO O LÍNEA DE CRÉDITO</td>
+        <td>MONTO TOTAL A PAGAR</td>
+      </tr>
+      <tr>
+        <td>
+          <span class="undeline">{{ info && info.cat }}</span>% Sin IVA.Para fines informativos y de comparación.
+        </td>
+        <td>
+          <span class="undeline">{{ info && info.annualInterestRate }}</span>
+        </td>
+        <td>
+          $<span class="undeline">{{ info && info.applyMoney }}</span><br>
+          (<span class="undeline">{{ info && info.applyMoneyUpper }}</span>pesos 00/100 M.N.)
+        </td>
+        <td>
+          $<span class="undeline">{{ info && info.currentRepay }}</span><br>
+          (<span class="undeline">{{ info && info.currentRepayUpper }}</span>pesos {{info && info.leftAmountDesc}}/100 M.N.)
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          PLAZO DEL CRÉDITO <br>
+          <span class="undeline">{{ info && info.loanDays }}</span>
+        </td>
+        <td colspan="2">
+          Fechas límite de pago: <br>
+          <span class="undeline">{{ info && info.repayDate }}</span>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="4">
+          COMISIONES RELEVANTES
+        </td>
+      </tr>
+      <tr>
+        <td colspan="4">
+          Comisión por servicios de tecnología: $30.00 (Treinta Pesos más IVA, pagadero una sola vez al inicio
+          del crédito.Comisión por análisis de solicitud de crédito y trámites administrativos : $30.00 (Treinta
+          Pesos más IVA, pagadero una sola vez al inicio del crédito.
+        </td>
+      </tr>
+      <tr>
+        <td colspan="4">
+          <p class="auTit">ADVERTENCIAS:</p>
+          Incumplir tus obligaciones te puede generar comisiones e intereses moratorios.Contratar créditos por
+          arriba de tu capacidad de pago puede afectar tu historial crediticio.
+        </td>
+      </tr>
+      <tr>
+        <td colspan="4">
+          SEGUROS: Sin seguro.
+        </td>
+      </tr>
+      <tr>
+        <td colspan="4">
+          <p class="auTit">ESTADO DE CUENTA:</p>
+          Consulta: Vía Internet: www.pandafintech.com.mx
+        </td>
+      </tr>
+      <tr>
+        <td colspan="4">
+          <p class="auTit">ACLARACIONES Y RECLAMACIONES:</p>
+          <span class="undeline">Panda Digital, S.A. de C.V., conforme a procedimiento descrito en
+            www.pandafintech.com.mx</span>
+          Horario de Atención: horario de oficina. Página de Internet:<span class="undeline">http://www.pandafintech.com.mx</span><br>
+          Representante Legal: Shengshuai Yuan
+        </td>
+      </tr>
+      <tr>
+        <td colspan="4">
+          <p class="auTit">Cuenta Bancaria para pago del Crédito:</p>
+          <p class="auTit">Titular: Panda Digital, S.A. de C.V., Banco: CI BANCO, S.A., I.B.M.</p>
+          <p class="auTit">Número de Cuenta: 00002335247/ CLABE: 143180000023352473 / Número de Cliente: 1000238059</p>
+        </td>
+      </tr>
+    </table>
+    <div class="textCent">
+      Leído que fue el presente documento el día<span class="undeline">{{ info && info.signedDay }}</span>de <span class="undeline">{{ info && info.signedMonth }}</span>del
+      <span class="undeline">{{ info && info.signedYear }}</span>(Fecha del Contrato)<br>
+      lo firman las partes como constancia.
+    </div>
+    <div class="signBox textCent">
+      <div class="signL">
+        <p>EL ACREEDOR</p>
+        <p class="undeline"><img src="../../assets/imgs//sing.png" alt="签名"></p>
+        <p>PANDA DIGITAL, SOCIEDAD ANÓNIMA DE CAPITAL VARIABLE.</p>
+        <p class="undeline">{{ info && info.companyAddress }}</p>
+        <p>REPRESENTADA POR: SHENGSHUAI YUAN</p>
+      </div>
+      <div class="signR">
+        <p>EL DEUDOR</p>
+        <p class="undeline">{{ info && info.username }}</p>
+        <p class="undeline">{{ info && info.username }}</p>
+        <p class="undeline">{{ info && info.rfc }}</p>
+        <p class="undeline">{{ info && info.userAddress }}</p>
+        <p class="undeline">CURP</p>
+        <p class="undeline">{{ info && info.curp }}</p>
+      </div>
+    </div>
+  </div>
+</ion-content>

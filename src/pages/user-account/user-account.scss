@@ -1,0 +1,78 @@
+page-user-account {
+  .gray-bgc{
+    background-color: #EEF1F6;
+    padding: 1px 0;
+  }
+  .one-item{
+    margin: .416667rem;
+    background-color: #FFF;
+    box-shadow: 0 2px 4px #C9CCD0;
+    border-radius: 5px;
+    padding: 0 .75rem .277778rem;
+    position: relative;
+    font-size: .416667rem;
+    line-height: .805556rem;
+    .bankName{
+      color: #A2A2A2;
+      font-size: .416667rem;
+      line-height: 1.291667rem;
+      border-bottom: 1px solid #E5E5E5;
+      margin-bottom: .277778rem;
+    }
+    .clabe,.bankCardNum{
+      font-size: .416667rem;
+      span{
+        display: inline-block;
+        float: right;
+        font-size: .416667rem;
+      }
+    }
+    .check-icon{
+      position: absolute;
+      right: .944444rem;
+      top: .416667rem;
+      font-size: .666667rem;
+      line-height: .555556rem;
+      color: #1BAEFF;
+    }
+    .circle{
+      position: absolute;
+      background-color: #FFF;
+      right: .944444rem;
+      top: .416667rem;
+      width: .555556rem;
+      height: .555556rem;
+      border-radius: .347222rem;
+      border: 1px solid #D2D2D2;
+    }
+    .check-card{
+      text-align: right;
+      .button-round.button-round-ios{
+        margin: .069444rem;
+        padding: 0 .416667rem;
+        height: .666667rem;
+        background-color: #FAAF2C;
+        .button-inner{
+          font-size: .388889rem;
+        }
+      }
+    }
+  }
+  .no-card{
+    text-align: center;
+    color: #ACACAC;
+    .account-card{
+      width: 2.083333rem;
+      margin-top: 3.041667rem;
+    }
+    p{
+      font-size: .416667rem;
+      margin: .5rem 0;
+    }
+  }
+  .c-submit-button{
+    span{
+      font-size: .5rem;
+    }
+  }
+}

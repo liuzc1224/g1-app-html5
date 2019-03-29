@@ -1,0 +1,28 @@
+<!-- <single-header [midTxt]=" 'common.headerMidTxt.g' | translate "></single-header> -->
+<!-- eef1f6 -->
+<ion-content class="has-header-view" style="background: #fff;" >
+
+  <div class="about-us">
+
+    <header class="margin-header">{{'aboutUs.group1.title' | translate}}</header>
+    <p class="us-content">{{'aboutUs.group1.content' | translate}}</p>
+    <header class="margin-header2">{{'aboutUs.group2.title' | translate}}</header>
+    <ul class="gas-ul">
+      <li class="content-list" *ngFor="let item of ('aboutUs.group2.content' | translate)">
+        <span class="gas"></span>
+        {{item}}
+      </li>
+    </ul>
+
+    <header class="margin-header">{{'aboutUs.group3.title' | translate}}</header>
+    <p class="us-content" style="margin-bottom: .555556rem;">{{'aboutUs.group3.content' | translate}}</p>
+    <ul class="icon-ul">
+      <li class="content-list" style="padding-left: 1.916667rem;" *ngFor="let item of ('aboutUs.group4.content' | translate);index as i">
+        <span class="icon"><img src="../../assets/imgs/aboutUs/pic{{i}}.png" alt=""></span>
+        <p class="blur-txt">{{item.blueTxt}}</p>
+        <p class="black-txt">{{item.blackTxt}}</p>
+      </li>
+    </ul>
+
+  </div>
+</ion-content>

@@ -1,0 +1,90 @@
+@mixin flexRow( $direction: row, $justify:center, $align:center) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+page-about-money {}
+
+.about-money {
+  .mongin-b10 {
+    margin-bottom: 1px;
+  }
+  .mongin-b20 {
+    margin-bottom: .166667rem;
+  }
+  .about-money-user {
+    height: 1.972222rem;
+    background: #fff;
+    @include flexRow(row, center, center);
+    .about-money-user-l {
+      width: 0;
+      flex: 1;
+      padding-left: .305556rem;
+      font-size: .361111rem;
+      line-height: .361111rem;
+      color: #acacac;
+      height: 100%;
+      p:nth-child(1) {
+        margin: .472222rem 0 .402778rem;
+      }
+      p:nth-child(2) {
+        color: #545454;
+      }
+    }
+    .about-money-user-r {
+      width: 2.722222rem;
+      @include flexRow(row, center, center);
+    }
+    .copy-btn {
+      width: 2.027778rem;
+      height: .694444rem;
+      line-height: .694444rem;
+      background: #3573fa;
+      border-radius: .347222rem;
+      font-size: .361111rem;
+      color: #fff;
+      text-align: center;
+      margin-top: .416667rem;
+    }
+  }
+  .cloud-group {
+    background: #fff;
+    overflow: hidden;
+    padding-bottom: .652778rem;
+    margin-bottom: .166667rem;
+    header {
+      text-align: center;
+      font-family: HelveticaNeueLTPro-MdEx;
+      font-size: .416667rem;
+      line-height: .611111rem;
+      color: #545454;
+      margin: .430556rem 0 .555556rem;
+    }
+    .txt-wrap {
+      padding: 0 .458333rem 0 1.305556rem;
+      font-family: HelveticaNeueLTPro-Ex;
+      font-size: .361111rem;
+      line-height: .611111rem;
+      color: #545454;
+      position: relative;
+      margin-bottom: .611111rem;
+      &:last-child {
+        margin: 0;
+      }
+      i {
+        position: absolute;
+        width: .666667rem;
+        height: .666667rem;
+        line-height: .666667rem;
+        background-color: #3573fa;
+        border-radius: 50%;
+        text-align: center;
+        color: #fff;
+        top: -0.02rem;
+        left: .333333rem;
+      }
+    }
+  }
+}

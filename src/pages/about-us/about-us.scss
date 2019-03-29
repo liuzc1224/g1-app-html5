@@ -1,0 +1,68 @@
+page-about-us {}
+
+ion-scroll {white-space:nowrap}
+
+.about-us {
+  overflow: hidden;
+  header {
+    font-family: HelveticaNeueLTPro-MdEx;
+    font-size: .416667rem;
+    line-height: .416667rem;
+    color: #545454;
+    text-align: center;
+  }
+  .margin-header {
+    margin: .486111rem 0;
+  }
+  .margin-header2{
+      margin: .833333rem 0 .625rem;
+      padding-left: 1.041667rem;
+      padding-right: 1.441667rem;
+      line-height: .611111rem;
+  }
+  .us-content {
+    padding: 0 1.097222rem 0 .319444rem;
+    font-family: HelveticaNeueLTPro-Ex;
+    font-size: .305556rem;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: .611111rem;
+    letter-spacing: 0px;
+    color: #545454;
+  }
+  .gas-ul{
+      padding-bottom: .763889rem;
+      border-bottom: .11111rem solid #eef1f6;
+  }
+  .content-list{
+      padding-left: .972222rem;
+      padding-right: .972222rem;
+      line-height: .611111rem;
+      font-size: .361111rem;
+      color: #545454;
+      margin-bottom: .347222rem;
+      position: relative;
+      .gas{
+        width: .277778rem;
+        height: .277778rem;
+        background-color: #3573fa;
+        border-radius: 50%;
+        position: absolute;
+        left: .333333rem;
+        top: .166667rem;
+      }
+      .icon{
+        width: .972222rem;
+        position: absolute;
+        left: .333333rem;
+        top: .01333rem;
+
+      }
+      .blur-txt{
+        color: #3573fa;
+      }
+      .black-txt{
+        color: #545454;
+      }
+  }
+}

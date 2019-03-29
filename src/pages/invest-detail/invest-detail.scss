@@ -1,0 +1,127 @@
+page-invest-detail {}
+
+.invest-detail {
+  width: 9.333333rem;
+  margin: .277778rem auto 0;
+  background-color: #ffffff;
+  box-shadow: .041667rem .069444rem .083333rem .013889rem rgba(146, 146, 146, 0.35);
+  border-radius: .138889rem;
+  .inv-detail-h {
+    height: 2.902778rem;
+    border-bottom: 1px solid #d3d3d3;
+    padding-left: .694444rem;
+    padding-top: .736111rem;
+    color: #545454;
+    position: relative;
+    .ras-tip {
+      width: 3.208333rem;
+      height: .597222rem;
+      line-height: .597222rem;
+      text-align: center;
+      font-family: HelveticaNeueLTPro-MdEx;
+      font-size: .361111rem;
+      color: #ffffff;
+      position: absolute;
+      right: -0.333333rem;
+      top: .722222rem;
+      &.waiting {
+        background: url(../../assets/imgs/investList/waiting.png) no-repeat center;
+        background-size: contain;
+      }
+      &.finshed {
+        background: url(../../assets/imgs/investList/finshed.png) no-repeat center;
+        background-size: contain;
+      }
+      &.ok {
+        background: url(../../assets/imgs/investList/ok.png) no-repeat center;
+        background-size: contain;
+      }
+      &.err {
+        background: url(../../assets/imgs/investList/err.png) no-repeat center;
+        background-size: contain;
+      }
+      &.repeat {
+        background: url(../../assets/imgs/investList/err.png) no-repeat center;
+        background-size: contain;
+      }
+    }
+    p:nth-child(1) {
+      font-family: HelveticaNeueLTPro-Ex;
+      font-size: .361111rem;
+      line-height: .361111rem;
+      margin-bottom: .347222rem;
+    }
+    p:nth-child(2) {
+      font-family: FZLTZCHJW-GB1-0;
+      font-size: .888889rem;
+      line-height: .888889rem;
+    }
+  }
+  .inv-detail-bot {
+    padding: .791667rem .597222rem 1.236111rem .694444rem;
+    color: #545454;
+    header {
+      font-family: HelveticaNeueLTPro-MdEx;
+      font-size: .416667rem;
+      line-height: .416667rem;
+      margin-bottom: .5rem;
+    }
+    .solid {
+      font-size: .361111rem;
+      line-height: .361111rem;
+      font-family: HelveticaNeueLTPro-Ex;
+      color: #acacac;
+      margin-bottom: .319444rem;
+    }
+    .bout {
+      font-size: .361111rem;
+      line-height: .361111rem;
+      font-family: HelveticaNeueLTPro-Ex;
+      margin-bottom: .347222rem;
+    }
+    .copy-btn {
+      float: right;
+      width: 2.027778rem;
+      height: .694444rem;
+      line-height: .694444rem;
+      background-color: #3573fa;
+      border-radius: .347222rem;
+      text-align: center;
+      line-height: .694444rem;
+      color: #fff;
+      font-size: .361111rem;
+      position: relative;
+      top: -0.277778rem;
+    }
+    .weight-txt {
+      font-family: HelveticaNeueLTPro-MdEx;
+      font-size: .333333rem;
+      line-height: .5rem;
+      color: #faaf2c;
+      margin-left: .597222rem;
+      position: relative;
+      margin-top: .861111rem;
+      span {
+        position: absolute;
+        width: .361111rem;
+        height: .361111rem;
+        line-height: .361111rem;
+        left: -0.611111rem;
+        top: 50%;
+        margin-top: -0.180556rem;
+        background: red;
+        border-radius: 50%;
+        text-align: center;
+        color: #fff;
+      }
+    }
+  }
+}
+.c-submit-button.submitBtn{
+  display: block;
+  width: 9.333333rem;
+  margin: .555556rem auto;
+  span{
+    font-size: .5rem;
+  }
+}

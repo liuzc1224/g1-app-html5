@@ -1,0 +1,26 @@
+<!-- <single-header
+    [midTxt]=" 'common.headerMidTxt.e' | translate "
+    [hideCommonRight]="true"
+    [hideRightBtn]="true"
+    [rightTxt]="'提交'"
+    [rightFn]="putInfo"
+    [parent] = 'parent'
+></single-header> -->
+<ion-content class="has-header-view">
+  <div class="feed-back">
+    <header>{{ "feedBack.them" | translate }}</header>
+    <div class="sele-req">
+      <p class="sd ds ff" *ngFor="let item of tabsInfo" [ngClass] = '{"active" : item.id === selectId }' (click)="choose($event,item.id)">{{item.title}}</p>
+    </div>
+    <header style="margin: 0;">{{ "feedBack.content" | translate }}</header>
+    <p class="textarea-p" style="margin: .375rem auto 0;">
+      <textarea [(ngModel)] = 'content' class="textarea-box" placeholder='{{ "feedBack.textarea" | translate }} (0/300)'></textarea>
+    </p>
+  </div>
+
+  <button (click) = 'putInfo()' ion-button class="c-submit-button" style="width: calc(100% - .55rem);margin:0 .275rem ;box-sizing: border-box;margin-top:20px">
+      {{ "common.operate.next" | translate}}
+  </button>
+
+  <div style="padding-bottom: 100px"></div>
+</ion-content>

@@ -1,0 +1,35 @@
+<ion-content style="background: #eef1f6;">
+  <div class="reviewpro-main">
+    <div class="progress-box">
+      <div class="progress-l">
+        <i class="icon-succ active">
+          <ion-icon name="checkmark" class="icoCheck"></ion-icon>
+        </i>
+        <span class="lenx"></span>
+        <i class="icon-succ">
+          <ion-icon name="checkmark" class="icoCheck"></ion-icon>
+        </i>
+        <span class="lenx">
+        </span>
+        <i class="icon-succ">
+          <ion-icon name="checkmark" class="icoCheck"></ion-icon>
+        </i>
+      </div>
+      <ul class="progress-r">
+        <li>
+          <h3>{{("homePage.reviewproQus" | translate)[0]}}</h3>
+          <p>{{("homePage.reviewproAns" | translate)[0]}}</p>
+        </li>
+        <li>
+        <h3>{{("homePage.reviewproQus" | translate)[1]}}</h3>
+          <p>{{("homePage.reviewproAns" | translate)[1]}}</p>
+        </li>
+        <li>
+          <h3>{{("homePage.reviewproQus" | translate)[2]}}</h3>
+          <p>{{("homePage.reviewproAns" | translate)[2]}}</p>
+        </li>
+      </ul>
+    </div>
+    <button class="common-btn" style="width: 9.305556rem" (click) = 'backToindex()'>{{("homePage.reviewproBtn" | translate)}}</button>
+  </div>
+</ion-content>

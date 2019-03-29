@@ -1,0 +1,326 @@
+page-review {
+
+}
+.datetime-text{
+    line-height:1.2rem;
+    padding-left: 0.3rem;
+    color: #acacac;
+}
+.process-bar-wrap{
+    width: 100% ;
+    height: 2.277778rem;
+}
+.process-list{
+    width: 100% ;
+    list-style: none;
+    box-sizing: border-box;
+    position: relative;
+}
+.addressInpWrap{
+    position: absolute;
+    width: 30%;
+    height: 1.28rem;
+    line-height: 1.28rem;
+    text-align: left;
+    color: #acacac;
+    padding-left: 0.3rem;
+}
+// .process-list::after{
+//     width: 100% ;
+//     display :block;
+//     content:  "" ;
+//     height: .138889rem;
+//     background: red;
+//     position: absolute;
+// }
+.process-list>li{
+    width: 25% ;
+    text-align: center;
+    position: relative;
+}
+.step-text{
+    font-size: .5rem ;
+    color:#fff ;
+    width: .666667rem ;
+    height: .666667rem ;
+    margin:  0 auto ;
+    line-height : .666667rem ;
+    border-radius: 50% ;
+    background: #6696fe;
+    position: relative;
+    z-index: 99 ;
+}
+.lineAfter::after{
+    content: "" ;
+    display: block;
+    width: 50%;
+    background:#6696fe;
+    height: .138889rem;
+    position: absolute;
+    top:calc(50% - .138889rem / 2) ;
+    right: 0px;
+}
+.lineBefore::before{
+    content: "" ;
+    display: block;
+    width: 50%;
+    background:#6696fe;
+    height: .138889rem;
+    position: absolute;
+    top:calc(50% - .138889rem / 2) ;
+    left: 0px;
+}
+
+.activeAfter .step-text{
+    background-color: #ffffff !important;
+    color: #527cd1 !important;
+}
+.activeAfter::after{
+    background: #ffffff !important;
+}
+
+.activeBefore .step-text{
+    background-color: #ffffff !important;
+    color: #527cd1 !important;
+}
+
+.activeBefore::before{
+    background: #ffffff !important;
+}
+
+.imgUpload{
+    width: 4.083333rem ;
+    height: 2.319444rem;
+    border-radius: 10px;
+    position: relative;
+}
+
+.ico-plus{
+    font-size: 1.3rem;
+    font-weight: bolder;
+    color: #fff;
+}
+
+.contentWrap{
+    height: auto !important ;
+}
+.imgUploadLarge{
+    width: 5.180556rem;
+    height: 2.527778rem ;
+    border-radius: 10px;
+    margin-top: 1rem ;
+    position: relative;
+}
+.explain-text{
+    margin-top: .416667rem ;
+    font-size: .361111rem ;
+    line-height: .513889rem ;
+}
+.paddingBottom{
+    padding-bottom: .805556rem ;
+}
+.infoWrap{
+    border-top: .166667rem solid #ccc;
+}
+.whiteWrap{
+    background: #fff ;
+}
+#front ,
+#reverse ,
+#hand ,
+#incomeProof{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 99;
+    opacity: 0;
+}
+.imgCover{
+    position: absolute;
+    z-index: 10 ;
+    top:0px;
+    left: 0px;
+    width: 100% !important;
+    height: 100% !important;
+    border-radius: 10px;
+}
+.fakeWrap{
+    position: absolute;
+    top:0px;
+    left:0px;
+    height: 1.277778rem;
+    line-height: 1.277778rem;
+    text-indent: .319444rem;
+    color: #acacac;
+    border-radius: 6px;
+    width: 100% !important;
+    max-width: 100% !important;
+    background: none;
+}
+.top ,
+.bottom{
+    width: 100% ;
+}
+.title{
+    font-size: .4rem;
+    text-align: left;
+    margin-bottom: 0.3rem;
+}
+.secRowInfo{
+    padding: .361111rem .333333rem ;
+    box-sizing: border-box ;
+}
+.contactForm{
+    color: #acacac;
+    border: none;
+    height: 1rem;
+    width: 100%;
+}
+.gapBottom{
+    border-bottom: 1px solid #d6d6d6;
+}
+.contactLabel{
+    margin-top: 0.3rem;
+}
+.secRowInfo:not(:last-child){
+    border-bottom : .166667rem solid #ccc;
+}
+.back{
+    background: #3573fa url(../../assets/imgs/review/back.png) round;
+}
+.front{
+    background: #3573fa url(../../assets/imgs/review/front.png) round;
+}
+.hand{
+    background: #3573fa url(../../assets/imgs/review/hand.png) round;
+}
+.income{
+    background: #3573fa url(../../assets/imgs/review/back.png) round;
+}
+
+.cover-sele{
+    position: absolute;
+    width: 100%;
+    height: 1.3rem;
+    top: 0.2rem;
+    z-index: 10;
+}
+.adc{
+    margin-top: 0.2rem;
+}
+
+.incomeProofTip{
+    text-align: left;
+    color: #acacac;
+    margin-top: 0.2rem;
+    line-height: 0.4rem;
+}
+
+// datepicker
+.picker-ios .picker-opt {
+    margin: 0;
+    -webkit-transform-origin: center center;
+    transform-origin: center center;
+    height:1.2rem;
+    font-size: 20px;
+    line-height: 42px;
+    color: #000;
+    background: transparent;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    pointer-events: auto;
+    padding: 0;
+}
+.curpTipPop{
+    position: absolute;
+    right: 0;
+    top: 0;
+    color: #3573fa;
+    margin-top: 0.4rem;
+}
+.curpMask{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba($color: #000000, $alpha: 0.6);
+    z-index: 999;
+}
+.curpMaskPop{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    z-index: 1000;
+    background: #fff;
+    width: 80%;
+    height: 7rem;
+    border-radius: .138889rem;
+    padding-top: 0.3rem;
+    .pop-close{
+        width: .569444rem;
+        height: .569444rem;
+        background: url(../../assets/imgs/close.jpg) no-repeat center;
+        background-size: contain;
+        position: absolute;
+        right: .338889rem;
+        top: .338889rem;
+    }
+    p{
+        margin: 0.3rem 0;
+        text-align: center;
+    }
+}
+.curpimgbox{
+    width: 4.847222rem;
+    height: 3.138889rem;
+    margin: 0.5rem auto 0;
+    img{
+        width: 100%;
+    }
+}
+.cell{
+    height: 1.277778rem;
+    line-height: 1.277778rem;
+    color: #ccc;
+    width: 100%;
+    font-size: 0.6rem;
+    span{
+        border-bottom: 1px solid #d3d3d3;
+        height: 100%;
+        font-size: 0.4rem;
+        color: #acacac;
+        opacity: 0.8;
+        border: 1px solid #ccc;
+        border-radius: .169444rem;
+        font-weight: normal;
+        text-align: left;
+        padding-left: 0.3rem;
+    }
+    span:nth-child(1){
+        width: 55%;
+    }
+    span:nth-child(2){
+        width: 30%;
+    }
+}
+.rfcInp{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border:none;
+    color:transparent;
+    background:transparent;
+    z-index: 10;
+}

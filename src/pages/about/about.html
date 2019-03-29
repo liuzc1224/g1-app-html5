@@ -1,0 +1,20 @@
+<single-header [hideLeftBtn] = "false" [hideCommonRight]="true" [setSysBtn]="true" [hideRightBtn] = "true" [midTxt]=" 'common.headerMidTxt.b' | translate "></single-header>
+
+<ion-content class="has-header-view" style="background: #eef1f6;">
+  <div class="account-info">
+    <div class="account-header">
+      <div class="header-portrait">
+        <img src="../../assets/imgs/defal.png" alt="">
+      </div>
+      <p class="user-phone">{{userPhone}}</p>
+    </div>
+    <ul class="account-pos-box">
+      <li class="list-item" *ngFor='let item of listConf; index as i' (click)='goToPage(item)'>
+        <i class="icon-acc">
+          <img src="../../assets/imgs/accountInfo/{{item}}.png" alt="">
+        </i>
+        <span>{{("accountPage.listGroup" | translate)[i]}}</span>
+      </li>
+    </ul>
+  </div>
+</ion-content>

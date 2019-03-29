@@ -1,0 +1,98 @@
+@mixin flexRow( $direction: row, $justify:center, $align:center) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+page-invest-list {}
+
+.invest-group {
+  .req-list {
+    height: 3.055556rem;
+    background: #fff;
+    margin-bottom: .277778rem;
+    width: 100%;
+    @include flexRow(row, center, flex-start);
+    .list-l{
+        width: 6.666667rem;
+        padding-left: .305556rem;
+        color: #545454;
+        span{
+            color: #3573fa;
+        }
+        p:nth-child(3){
+            line-height: .305556rem;
+        }
+        p:nth-child(2){
+            margin: .402778rem 0;
+            line-height: .305556rem;
+        }
+        p:nth-child(1){
+            font-size: .444444rem;
+            margin-top: .597222rem;
+            line-height: .444444rem;
+        }
+    }
+    .list-r{
+        flex: 1;
+        .icon-stus{
+            width: 3.236111rem;
+            height: .597222rem;
+            text-align: center;
+            line-height: .597222rem;
+            color: #fff;
+            font-size: .361111rem;
+            margin: .375rem 0 1.111111rem 0;
+            float: right;
+            &.waiting{
+                background: url(../../assets/imgs/investList/waiting.png) no-repeat center;
+                background-size: contain;
+            }
+            &.finshed{
+                background: url(../../assets/imgs/investList/finshed.png) no-repeat center;
+                background-size: contain;
+            }
+            &.ok{
+                background: url(../../assets/imgs/investList/ok.png) no-repeat center;
+                background-size: contain;
+            }
+            &.err{
+                background: url(../../assets/imgs/investList/err.png) no-repeat center;
+                background-size: contain;
+            }
+            &.repeat{
+                background: url(../../assets/imgs/investList/err.png) no-repeat center;
+                background-size: contain;
+            }
+        }
+        .icon-date{
+            float: right;
+            font-size: .333333rem;
+            color: #acacac;
+            margin-right: .25rem;
+            line-height: .25rem;
+        }
+    }
+  }
+  .empt-icon{
+      width: 1.527778rem;
+      height: 2.027778rem;
+      margin: 3.277778rem auto 0;
+      text-align: center;
+  }
+  .tip-txt{
+      width: 5.416667rem;
+      margin: .666667rem auto .958333rem;
+      font-size: .416667rem;
+      line-height: .611111rem;
+      color: #acacac;
+      text-align: center;
+  }
+  .go-to-page{
+      font-size: .361111rem;
+      line-height: .361111rem;
+      color: #3573fa;
+      text-align: center;
+  }
+}

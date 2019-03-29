@@ -1,0 +1,81 @@
+page-help-center {}
+
+@mixin flexRow( $direction: row, $justify:center, $align:center) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+.help-center {
+  padding-bottom: 2rem;
+  .help-center-h {
+    @include flexRow(row, center, center);
+    height: 2.277778rem;
+    background: #3573fa;
+    font-family: HelveticaNeueLTPro-MdEx;
+    .help-center-h-l,
+    .help-center-h-r {
+      height: 1.138889rem;
+      width: 0;
+      flex: 1;
+      @include flexRow(row, center, center);
+      img {
+        width: .791667rem; // height: .833333rem;
+      }
+      span,
+      a {
+        font-size: .416667rem;
+        color: #fff;
+        padding-left: .305556rem;
+        text-decoration: none;
+      }
+    }
+    .help-center-h-l {
+      border-right: 1px solid #eef1f6;
+    }
+  }
+  .help-center-list li {
+    width: 9.347222rem;
+    background: #eef1f6;
+    border-radius: .083333rem;
+    margin: .319444rem auto 0.3rem;
+  }
+}
+
+.email-mark {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background: rgba($color: #000000, $alpha: 0.6);
+  z-index: 999;
+}
+
+.email-pop {
+  width: 6.333333rem;
+  height: 3.5rem;
+  background: #fff;
+  border-radius: .138889rem;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  z-index: 1000;
+  padding-top: 1.2rem;
+  overflow: hidden;
+  text-align: center;
+  .ok-btn {
+    width: 100%;
+    height: 1rem;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    font-size: .277778rem;
+    border-top: 1px solid #ccc;
+    line-height: 1rem;
+  }
+}

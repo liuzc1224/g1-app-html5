@@ -1,0 +1,28 @@
+.contrTwoWrap {
+    padding: .416667rem;
+    p{
+      margin-bottom: .238889rem;
+    }
+  .undeline {
+    text-decoration: underline;
+  }
+
+  .auTit {
+    margin: 0;
+    margin-bottom: .055556rem;
+    font-weight: 900;
+  }
+
+  .textCent {
+    text-align: center;
+  }
+
+  .repayTable {
+    table-layout: fixed;
+    word-break: break-all;
+  }
+
+  .repayTable th {
+    background: #aaa;
+  }
+}

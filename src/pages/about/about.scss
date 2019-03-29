@@ -1,0 +1,77 @@
+@mixin flexRow( $direction: row, $justify:center, $align:center) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+page-about {}
+
+.account-info {
+  position: relative;
+  .account-header {
+    height: 5rem;
+    width: 100%;
+    overflow: hidden;
+    color: #fff;
+    background: #3573fa url(../../assets/imgs/homePage/bling.png) no-repeat center bottom;
+    background-size: contain;
+    text-align: center;
+    @include flexRow(column, flex-start, center);
+    .header-portrait{
+        width: 1.75rem;
+        height: 1.75rem;
+        padding: 2px;
+        background: #fff;
+        overflow: hidden;
+        text-align: center;
+        line-height: 1.75px;
+        border-radius: 50%;
+        margin-top: .625rem;
+    }
+    .user-phone{
+        font-size: .444444rem;
+        line-height: .444444rem;
+        color: #fff;
+        margin-top: .430556rem;
+    }
+  }
+  .account-pos-box {
+    width: 9.333333rem;
+    // height: 11.833333rem;
+    position: relative;
+    top: -1rem;
+    background-color: #ffffff;
+    box-shadow: 3px 5px 6px 1px rgba(146, 146, 146, 0.35);
+    border-radius: .138889rem;
+    margin: 0 auto .347222rem;
+    .list-item {
+      height: 1.694444rem;
+      border-bottom: 1px solid #d3d3d3;
+      @include flexRow(row, center, center);
+      &:last-child{
+          border: none;
+      }
+      i {
+        width: 2.347222rem;
+        height: 100%;
+        position: relative;
+        img {
+          width: 1.111111rem;
+          height: auto;
+          position: absolute;
+          left: 0;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          margin: auto;
+        }
+      }
+      span {
+        flex: 1;
+        font-size: .361111rem;
+        color: #545454;
+      }
+    }
+  }
+}

@@ -1,0 +1,41 @@
+<ion-content>
+    <div class="c-contentWrap infoContent c-flex-column-start " style="padding-bottom:0;">
+      <!-- 订单号 -->
+      <div class="sectionInfo c-flex-row-space">
+        <div class="infoLeft">
+          {{ "repayQr.repayId" | translate}}
+        </div>
+        <div class="infoRight">
+          {{ orderNo }}
+        </div>
+      </div>
+      <!-- 还款金额 -->
+      <div class="sectionInfo c-flex-row-space">
+        <div class="infoLeft">
+          {{ "repayQr.amount" | translate}}
+        </div>
+        <div class="infoRight">
+          <input type="number" [(ngModel)]="repayMoney" class="repay-money">
+        </div>
+      </div>
+      <!-- 还款账户 -->
+      <div class="sectionInfo c-flex-row-space">
+        <div class="infoLeft">
+          {{ "repayQr.account" | translate}}
+        </div>
+        <div class="infoRight c-orange" (click)="chooseCard()">
+          {{clabeNum ? "****" + clabeNum.slice(-4) : "Elija"}} &nbsp;
+          <ion-icon name="arrow-forward"></ion-icon>
+        </div>
+      </div>
+    </div>
+    
+    <div class="padWrap" *ngIf='padShow'>
+      <number-pad [title]='padTitle' [showForget]='showForget' (cancel)='numCancel($event)' (complete)='numComplete($event)'>
+      </number-pad>
+    </div>
+    <button ion-button class="c-submit-button submitBtn" [disabled]='!bankCardNum || !repayMoney' (click)='submitInfoForm($event)'>
+      {{ "repayQr.repayNow" | translate}}
+    </button>
+  </ion-content>
+  

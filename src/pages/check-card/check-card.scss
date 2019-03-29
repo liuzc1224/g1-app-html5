@@ -1,0 +1,16 @@
+page-check-card {
+    .underline{
+        border: 0;
+        border-radius: 0;
+        border-bottom: 1px solid #d3d3d3;
+    }
+    .check-warning{
+        margin-top: .416667rem;
+        color: #FAAF2C;
+    }
+    .c-submit-button{
+        span{
+            font-size: .416667rem;
+        }
+    }
+}

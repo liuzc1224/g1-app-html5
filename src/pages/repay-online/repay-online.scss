@@ -1,0 +1,25 @@
+page-repay-online {
+    .infoContent{
+        margin: .333333rem;
+        padding: 0;
+        width: auto;
+        border: 1px solid #d3d3d3;
+        border-bottom: 0;
+        border-radius: .083333rem;
+        .sectionInfo{
+            padding: .388889rem .305556rem;
+            div{
+                font-size: .416667rem;
+            }
+            .infoRight{
+                color: #A2A2A2;
+                .repay-money{
+                    text-align: right;
+                }
+            }
+            .infoRight.c-orange{
+                color: #FAAF2C;
+            }
+        }
+    }
+}

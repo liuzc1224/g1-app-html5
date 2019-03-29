@@ -1,0 +1,34 @@
+<ion-content>
+<div [class.gray-bgc]="userAccountList && userAccountList.length > 0">
+  <div *ngIf = 'userAccountList && userAccountList.length > 0'>
+    <ul>
+      <li *ngFor="let item of userAccountList" (click)="(from==2)&&(item.isCheck!=0)? '':changeChoose(item)">
+        <div class="one-item" [class.ischoose]="item === selectCard">
+          <ion-icon class="check-icon" name="checkmark-circle" *ngIf="item === selectCard"></ion-icon>
+          <div class="circle" *ngIf="item != selectCard"></div>
+          <div class="bankName">{{item.bankName}}</div>
+          <div class="clabe">
+            {{ "account.form.eccount" | translate}}<span *ngIf="item.clabeNum">**** **** {{item.clabeNum.slice(-4)}}</span>
+          </div>
+          <div class="bankCardNum">
+            {{ "account.form.bankCardNum" | translate}}<span *ngIf="item.bankCardNum">**** **** {{item.bankCardNum.slice(-4)}}</span>
+          </div>
+          <!-- <div class="check-card" *ngIf="item.isCheck!=0">
+            <button ion-button round (click)='checkCard(item,$event)'>{{ "account.form.goCheck" | translate}}</button>
+          </div> -->
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div *ngIf="userAccountList && (userAccountList.length == 0)" class="no-card">
+    <img class="account-card" src="../../assets/imgs/account_card.png" alt="">
+    <p>{{ "account.form.noCard" | translate}}</p>
+  </div>
+
+
+  <button ion-button class="c-submit-button submitBtn" (click)='addNewCard()'>
+    {{ "account.form.addNewCard" | translate }}
+  </button>
+</div>
+</ion-content>

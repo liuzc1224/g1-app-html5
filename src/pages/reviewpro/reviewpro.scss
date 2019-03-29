@@ -1,0 +1,74 @@
+@mixin flexRow( $direction: row, $justify:center, $align:center) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+.reviewpro-main {
+  background: #fff;
+  overflow: hidden;
+  height: 100%;
+  padding: 1.25rem 0 0;
+  .progress-box {
+    @include flexRow(row, center, start);
+    .progress-l {
+      @include flexRow(column, center, center);
+      width: 1.666667rem;
+    }
+    .progress-r {
+      flex: 1;
+      li{
+          margin-bottom: .772222rem;
+          padding-right: .694444rem;
+          padding-left: 4px;
+          h3{
+            font-size: .416667rem;
+            line-height: .611111rem;
+            color: #545454;
+            font-family: HelveticaNeueLTPro-MdEx;
+          }
+          p{
+            font-size: .333333rem;
+            line-height: .541667rem;
+            color: #acacac;
+            margin-top: .138889rem;
+            font-family: HelveticaNeueLTPro-Ex;
+          }
+          &:nth-child(2){
+            margin-bottom: 1.4rem;
+            padding-right: 2.180556rem;
+          }
+          &:nth-child(3){
+            padding-right: 1.75rem;
+            margin-bottom: 1.486111rem;
+          }
+      }
+    }
+    .icon-succ {
+      width: .666667rem;
+      height: .666667rem;
+      background-color: #acacac;
+      border-radius: 50%;
+      text-align: center;
+      line-height: .666667rem;
+      color: #fff;
+      &.active{
+        background-color: #3573fa;
+      }
+    }
+    .lenx {
+      width: .055556rem;
+      height: 2.5rem;
+      background-color: #acacac;
+      border-radius: 1px;
+      &.active{
+        background-color: #3573fa;
+      }
+    }
+  }
+}
+.icoCheck{
+  font-size: .7rem ;
+  color : #fff;
+}

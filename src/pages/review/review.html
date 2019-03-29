@@ -1,0 +1,609 @@
+<!-- <ion-header>
+  <div class="c-header-wrap c-background c-flex-row-start">
+    <ion-icon ios="ios-arrow-back" md="md-arrow-back" class="c-icon-back" (click) = 'backHistory()'></ion-icon>
+    <div>
+       {{ title }}
+    </div>
+  </div>
+</ion-header> -->
+
+<!-- <single-header [midTxt] = 'title'>
+
+</single-header> -->
+
+<ion-content class="has-header-view">
+  <div class="process-bar-wrap c-flex-row-center c-background">
+    <ul class="process-list c-flex-row-space">
+      <li class="lineAfter activeAfter" (click)='slideTo(0)'>
+        <div class="step-text">
+          1
+        </div>
+      </li>
+      <li class="lineAfter lineBefore" [ngClass]='{"activeAfter activeBefore" : currentStep >= 1 }' (click)='slideTo(1)'>
+        <div class="step-text">
+          2
+        </div>
+      </li>
+      <li class="lineAfter lineBefore" [ngClass]='{"activeAfter activeBefore" : currentStep >= 2 }' (click)='slideTo(2)'>
+        <div class="step-text">
+          3
+        </div>
+      </li>
+      <li class="lineAfter lineBefore" [ngClass]='{"activeAfter activeBefore" : currentStep >= 3 }' (click)='slideTo(3)'>
+        <div class="step-text">
+          4
+        </div>
+      </li>
+      <li class="lineBefore" [ngClass]='{"activeAfter activeBefore" : currentStep >= 4 }' (click)='slideTo(4)'>
+        <div class="step-text">
+          5
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <ion-slides class='contentWrap' (ionDrag)="ionSlideTap($event)">
+    <ion-slide>
+      <div class="whiteWrap" style="padding-top: 1rem">
+        <div class="c-flex-row-center paddingBottom">
+          <div style="margin-right: 1.138889rem;" (click)='imgChange($event ,"realNameForm", "front")'>
+            <div class="imgUpload c-flex-row-center front">
+              <ion-icon ios="ios-add" md="md-add" class="ico-plus"></ion-icon>
+              <!-- <input id="front" type='file' accept='image/*' capture='camera' (change) = 'imgChange($event ,"realNameForm", "front")'>  -->
+              <img [src]="realNameForm.get('front').value" alt="" class="c-img-res imgCover">
+            </div>
+            <div class="explain-text">
+              {{ "review.imgs.front" | translate }}
+            </div>
+          </div>
+          <div>
+            <div class="imgUpload c-flex-row-center back" (click)='imgChange($event ,"realNameForm", "reverse")'>
+              <ion-icon ios="ios-add" md="md-add" class="ico-plus"></ion-icon>
+              <!-- <input id="reverse" type='file' accept='image/*' capture='camera' (change) = 'imgChange($event ,"realNameForm" , "reverse")' />  -->
+              <img [src]="realNameForm.get('reverse').value" alt="" class="c-img-res imgCover">
+            </div>
+            <div class="explain-text">
+              {{ "review.imgs.back" | translate }}
+            </div>
+          </div>
+        </div>
+
+        <!-- <div class="c-flex-row-center paddingBottom">
+          <div>
+            <div class="imgUploadLarge c-flex-row-center hand" (click)='imgChange($event ,"realNameForm", "hand")'>
+              <ion-icon ios="ios-add" md="md-add" class="ico-plus"></ion-icon>
+              <img [src]="realNameForm.get('hand').value" alt="" class="c-img-res imgCover">
+            </div>
+            <div class="explain-text">
+              {{ "review.imgs.withHand" | translate }}
+            </div>
+          </div>
+        </div> -->
+      </div>
+
+      <div class="infoWrap whiteWrap">
+        <form [formGroup]="realNameForm" class="c-form-wrap">
+
+          <div class="c-input-section c-flex-column-start">
+            <div class="c-input-label c-form-required">
+              {{ "review.form.realName.text.name" | translate}}
+            </div>
+            <!-- 名 -->
+            <input formControlName="username" id="username" type="text" class="c-form-input" [placeholder]=' "review.form.realName.tips.name" | translate ' />
+            <div *ngIf="realNameForm.get('username').dirty && realNameForm.get('username').errors" class="c-error-tip">
+              {{ "common.tips.invalidValue" | translate}}
+            </div>
+
+          </div>
+
+          <div class="c-input-section c-flex-column-start">
+            <div class="c-input-label c-form-required">
+              {{ "review.form.realName.text.fatherFirstName" | translate}}
+            </div>
+            <!-- 父亲姓 -->
+            <input formControlName="fatherFirstName" id="fatherFirstName" style="margin-top: 0.3rem;" type="text" class="c-form-input"
+              [placeholder]=' "review.form.realName.tips.fatherFirstName" | translate ' />
+            <div *ngIf="realNameForm.get('fatherFirstName').dirty && realNameForm.get('fatherFirstName').errors" class="c-error-tip">
+              {{ "common.tips.invalidValue" | translate}}
+            </div>
+
+          </div>
+
+          <div class="c-input-section c-flex-column-start">
+            <div class="c-input-label">
+              {{ "review.form.realName.text.motherFirstName" | translate}}
+            </div>
+            <!-- 母亲姓 -->
+            <input formControlName="motherFirstName" id="motherFirstName" style="margin-top: 0.3rem;" type="text" class="c-form-input"
+              [placeholder]=' "review.form.realName.tips.motherFirstName" | translate ' />
+            <div *ngIf="realNameForm.get('motherFirstName').dirty && realNameForm.get('motherFirstName').errors" class="c-error-tip">
+              {{ "common.tips.invalidValue" | translate}}
+            </div>
+
+          </div>
+
+          <div class="c-input-section c-flex-column-start">
+
+            <div class="curpTipPop" (click)="showCurpPop()">¿Dónde encuentro mi CURP?</div>
+
+            <div class="c-input-label c-form-required">
+              {{ "review.form.realName.text.curp" | translate}}
+            </div>
+
+            <input maxlength="18" formControlName="idNumber" type="text" class="c-form-input" [placeholder]=' "review.form.realName.tips.curp" | translate ' />
+            <div *ngIf=" realNameForm.get('idNumber').dirty && (realNameForm.get('idNumber').errors || realNameForm.get('idNumber').value.length != 18) "
+              class="c-error-tip">
+              {{ realNameForm.get('idNumber').value.length != 18 ? ("review.form.realName.tips.curp" | translate) :
+              ("common.tips.invalidValue" | translate)}}
+            </div>
+          </div>
+
+          <div class="c-input-section c-flex-column-start">
+            <div class="c-input-label c-form-required">
+              {{ "review.form.realName.text.rfc" | translate}}
+            </div>
+
+            <div style="width:100%;position:relative;">
+              <p class="cell c-flex-row-space">
+                <span>{{rfc1}}</span>
+                —
+                <span>{{rfc2}}</span>
+              </p>
+              <input class="rfcInp" maxlength="13" formControlName="rfc" type="text">
+              <div *ngIf="!realNameForm.get('rfc').value" class="fakeWrap c-flex-row-start" style="z-index: 1;">{{
+                "review.form.realName.tips.rfc" | translate}}</div>
+            </div>
+            <div *ngIf="realNameForm.get('rfc').dirty && (realNameForm.get('rfc').errors || realNameForm.get('rfc').value.length != 13)"
+              class="c-error-tip">
+              {{ realNameForm.get('rfc').value.length != 13 ? ("review.form.realName.tips.rfc" | translate) :
+              ("common.tips.invalidValue" | translate)}}
+            </div>
+          </div>
+
+          <button ion-button class="c-submit-button" (click)='submitRealName()' [disabled]="!(realNameForm.valid && (realNameForm.get('rfc').value && realNameForm.get('rfc').value.length == 13) && (realNameForm.get('idNumber').value && realNameForm.get('idNumber').value.length == 18))">
+            {{ "common.operate.next" | translate }}
+          </button>
+        </form>
+      </div>
+    </ion-slide>
+
+    <ion-slide>
+      <form [formGroup]="infoForm" class="c-form-wrap">
+
+        <!-- 性别 -->
+        <div class="c-input-section c-flex-column-start">
+          <div class="c-input-label c-form-required">
+            {{ "review.form.infoForm.sex" | translate}}
+          </div>
+          <div class="c-flex-column-start" style="width: 100%;position: relative;">
+            <ion-select formControlName='gender' class="c-form-input" style="line-height: calc(1.277778rem - 22px)"
+              [cancelText]='"common.operate.cancel" | translate' [okText]='"common.operate.sure" | translate'>
+              <ion-option *ngFor='let item of enum_sex' [value]='item.value'>
+                {{ item.name }}
+              </ion-option>
+            </ion-select>
+            <div class="fakeWrap c-flex-row-start" (click)='showModal("enum_sex" , "infoForm" , "gender")'>
+              <span *ngIf=" infoForm.get('gender').value == null ">
+                {{ "review.form.infoForm.sex" | translate }}
+              </span>
+            </div>
+          </div>
+          <div *ngIf="infoForm.get('gender').dirty && infoForm.get('gender').errors" class="c-error-tip">
+            {{ "common.tips.invalidValue" | translate}}
+          </div>
+        </div>
+        <!-- 出生地 -->
+        <div class="c-input-section c-flex-column-start">
+          <div class="c-input-label c-form-required">
+            {{ "review.form.infoForm.place" | translate}}
+          </div>
+          <!-- 选择洲 -->
+          <div class="c-flex-column-start" style="width: 100%;position: relative;height: 1.4rem;">
+            <ion-select formControlName='stateCode' style="width: 30%;position: absolute;left: 0;top: 0;border:solid 1px #d3d3d3;color: #acacac;line-height: 0.6rem;border-radius: 6px;padding-left: 0.2rem;height: 1.28rem;"
+              [cancelText]='"common.operate.cancel" | translate' [okText]='"common.operate.sure" | translate'>
+              <ion-option *ngFor='let item of ("review.form.infoForm.placeUd" | translate)' [value]='item.name'>
+                {{ item.name }}
+              </ion-option>
+            </ion-select>
+            <div class="addressInpWrap" (click)='showModal("addressGroup" , "infoForm" , "stateCode")'>
+              <span *ngIf=" infoForm.get('stateCode').value == null ">
+                {{ "review.form.infoForm.sandbar" | translate }}
+              </span>
+            </div>
+            <!-- 输入出生地 -->
+            <input formControlName='birthplace' style="width: 68%;position: absolute;right: 0;top: 0;border:solid 1px #d3d3d3;color: #acacac;height: 1.277778rem;line-height: 1.277778rem;border-radius: 6px;padding-left: 0.3rem;"
+              formControlName="birthplace" type="text" [placeholder]=' "review.form.infoForm.place" | translate ' />
+            <div *ngIf="infoForm.get('birthplace').dirty && infoForm.get('birthplace').errors" class="c-error-tip"
+              style="margin-top: 69px;">
+              {{ "common.tips.invalidValue" | translate}}
+            </div>
+          </div>
+        </div>
+        <!-- 出生日期 -->
+        <div class="c-input-section c-flex-column-start">
+          <div class="c-input-label c-form-required">
+            {{ "review.form.infoForm.birthDate" | translate}}
+          </div>
+          <ion-datetime style="width: 9.3rem;height: 1.2rem;padding: 0;border:solid 1px #d3d3d3;border-radius: 6px;text-align: left;  "
+            displayFormat="DD-MM-YYYY" formControlName="birthday"></ion-datetime>
+          <div *ngIf="infoForm.get('birthday').dirty && infoForm.get('birthday').errors" class="c-error-tip">
+            {{ "common.tips.invalidValue" | translate}}
+          </div>
+        </div>
+        <!-- 婚姻状况 -->
+        <div class="c-input-section c-flex-column-start">
+          <div class="c-input-label c-form-required">
+            {{ "review.form.infoForm.marray" | translate}}
+          </div>
+
+          <div class="c-flex-column-start" style="width: 100%;position: relative;">
+            <ion-select formControlName='maritalStatus' class="c-form-input" style="line-height: calc(1.277778rem - 22px)"
+              [cancelText]='"common.operate.cancel" | translate' [okText]='"common.operate.sure" | translate'>
+              <ion-option *ngFor='let item of enum_marry' [value]='item.value'>
+                {{ item.name }}
+              </ion-option>
+            </ion-select>
+            <div class="fakeWrap c-flex-row-start" (click)='showModal("enum_marry" , "infoForm" , "maritalStatus")'>
+              <span *ngIf=" infoForm.get('maritalStatus').value == null ">
+                {{ "review.form.infoForm.marray" | translate }}
+              </span>
+            </div>
+          </div>
+
+          <div *ngIf="infoForm.get('maritalStatus').dirty && infoForm.get('maritalStatus').errors" class="c-error-tip">
+            {{ "common.tips.invalidValue" | translate}}
+          </div>
+        </div>
+        <!-- 学历 -->
+        <div class="c-input-section c-flex-column-start">
+          <div class="c-input-label c-form-required">
+            {{ "review.form.infoForm.degree" | translate}}
+          </div>
+
+          <div class="c-flex-column-start" style="width: 100%;position: relative;">
+            <ion-select formControlName='educationBackground' class="c-form-input" style="line-height: calc(1.277778rem - 22px)"
+              [cancelText]='"common.operate.cancel" | translate' [okText]='"common.operate.sure" | translate'>
+              <ion-option *ngFor='let item of enum_degree' [value]='item.value'>
+                {{ item.name }}
+              </ion-option>
+            </ion-select>
+            <div class="fakeWrap c-flex-row-start" (click)='showModal("enum_degree" , "infoForm", "educationBackground")'>
+              <span *ngIf="!infoForm.get('educationBackground').value">
+                {{ "review.form.infoForm.degree" | translate }}
+              </span>
+            </div>
+          </div>
+
+          <div *ngIf="infoForm.get('educationBackground').dirty && infoForm.get('educationBackground').errors" class="c-error-tip">
+            {{ "common.tips.invalidValue" | translate}}
+          </div>
+        </div>
+        <!-- 电子邮箱 -->
+        <div class="c-input-section c-flex-column-start">
+          <div class="c-input-label c-form-required">
+            {{ "review.form.infoForm.mail" | translate}}
+          </div>
+
+          <input formControlName="email" type="email" class="c-form-input" [placeholder]=' "review.form.infoForm.mail" | translate ' />
+          <div *ngIf="infoForm.get('email').dirty && infoForm.get('email').errors" class="c-error-tip">
+            {{ "common.tips.invalidValue" | translate}}
+          </div>
+        </div>
+
+        <button ion-button class="c-submit-button" [disabled]='!infoForm.valid' (click)='submitInfoForm()'>
+          {{ "common.operate.next" | translate}}
+        </button>
+
+      </form>
+    </ion-slide>
+
+    <ion-slide>
+      <form [formGroup]="familyForm" class="c-form-wrap">
+        <!-- 父亲姓名 -->
+        <div class="c-input-section c-flex-column-start">
+          <div class="c-input-label c-form-required">
+            {{ "review.form.faimly.fatherName" | translate}}
+          </div>
+          <input formControlName="fatherName" type="text" class="c-form-input" [placeholder]=' "review.form.faimly.fatherName" | translate ' />
+          <div *ngIf="familyForm.get('fatherName').dirty && familyForm.get('fatherName').errors" class="c-error-tip">
+            {{ "common.tips.invalidValue" | translate}}
+          </div>
+        </div>
+        <!-- 母亲姓名 -->
+        <div class="c-input-section c-flex-column-start">
+          <div class="c-input-label c-form-required">
+            {{ "review.form.faimly.motherName" | translate}}
+          </div>
+          <input formControlName="motherName" type="text" class="c-form-input" [placeholder]=' "review.form.faimly.motherName" | translate ' />
+          <div *ngIf="familyForm.get('motherName').dirty && familyForm.get('motherName').errors" class="c-error-tip">
+            {{ "common.tips.invalidValue" | translate}}
+          </div>
+        </div>
+        <!-- 家庭人数 -->
+        <div class="c-input-section c-flex-column-start">
+          <div class="c-input-label c-form-required">
+            {{ "review.form.faimly.peopleNum" | translate}}
+          </div>
+          <input formControlName="familyMembersCount" type="tel" class="c-form-input" [placeholder]=' "review.form.faimly.peopleNumTip" | translate ' />
+          <div *ngIf="familyForm.get('familyMembersCount').dirty && familyForm.get('familyMembersCount').errors" class="c-error-tip">
+            {{ "common.tips.invalidValue" | translate}}
+          </div>
+        </div>
+        <!-- 家庭地址 -->
+        <!-- <div class="c-input-section c-flex-column-start">
+            <div class="c-input-label c-form-required">
+                {{ "review.form.faimly.homeAddress" | translate}}
+            </div>
+            <input formControlName="homeAddress" type="text" class="c-form-input" [placeholder]=' "review.form.faimly.homeAddress" | translate ' />
+            <div *ngIf="familyForm.get('homeAddress').dirty && familyForm.get('homeAddress').errors" class="c-error-tip">
+                {{ "common.tips.invalidValue" | translate}}
+            </div>
+        </div> -->
+        <!-- 家庭地址 -->
+        <div class="c-input-section c-flex-column-start">
+          <div class="c-input-label c-form-required">
+            {{ "review.form.faimly.homeAddress" | translate}}
+          </div>
+
+          <!-- 家庭详细街道 -->
+          <input formControlName="homeAddress" type="text" class="c-form-input" [placeholder]=' "review.form.faimly.homeAddress" | translate ' />
+          <div *ngIf="familyForm.get('homeAddress').dirty && familyForm.get('homeAddress').errors" class="c-error-tip">
+            {{ "common.tips.invalidValue" | translate}}
+          </div>
+          <!-- 家庭详细区 -->
+          <input formControlName="homeBlock" type="text" class="c-form-input" style="margin-top:0.6rem;" [placeholder]=' "review.form.faimly.homeAddressBlock" | translate ' />
+          <div *ngIf="familyForm.get('homeBlock').dirty && familyForm.get('homeBlock').errors" class="c-error-tip">
+            {{ "common.tips.invalidValue" | translate}}
+          </div>
+          <!-- 家庭详细del -->
+          <input formControlName="homeMpio" type="text" class="c-form-input" style="margin-top:0.6rem;" [placeholder]=' "review.form.faimly.homeAddressMpio" | translate ' />
+          <div *ngIf="familyForm.get('homeMpio').dirty && familyForm.get('homeMpio').errors" class="c-error-tip">
+            {{ "common.tips.invalidValue" | translate}}
+          </div>
+          <!-- 家庭详细城市 -->
+          <input formControlName="homeCity" type="text" class="c-form-input" style="margin-top:0.6rem;" [placeholder]=' "review.form.faimly.homeAddressCity" | translate ' />
+          <div *ngIf="familyForm.get('homeCity').dirty && familyForm.get('homeCity').errors" class="c-error-tip">
+            {{ "common.tips.invalidValue" | translate}}
+          </div>
+          <!-- 家庭详细洲 -->
+          <div class="c-flex-column-start" style="width: 100%;position: relative;height: 1.4rem;margin-top:0.6rem;">
+            <ion-select formControlName='homeState' style="width: 100%;max-width: 100%;position: absolute;left: 0;top: 0;border:solid 1px #d3d3d3;color: #acacac;line-height: 0.6rem;border-radius: 6px;padding-left: 0.2rem;height: 1.28rem;"
+              [cancelText]='"common.operate.cancel" | translate' [okText]='"common.operate.sure" | translate'>
+              <ion-option *ngFor='let item of ("review.form.infoForm.placeUd" | translate)' [value]='item.name'>
+                {{ item.name }}
+              </ion-option>
+            </ion-select>
+            <div class="addressInpWrap" style="width:100%;" (click)='showModal("addressGroup" , "familyForm" , "homeState")'>
+              <span *ngIf=" familyForm.get('homeState').value == null ">
+                {{ "review.form.faimly.homeAddressState" | translate }}
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 住宅类型 -->
+        <div class="c-input-section c-flex-column-start">
+          <div class="c-input-label c-form-required">
+            {{ "review.form.faimly.homeType" | translate}}
+          </div>
+
+          <div class="c-flex-column-start" style="width: 100%;position: relative;">
+            <ion-select formControlName='addressType' class="c-form-input" style="line-height: calc(1.277778rem - 22px)"
+              [cancelText]='"common.operate.cancel" | translate' [okText]='"common.operate.sure" | translate'>
+              <ion-option *ngFor='let item of enum_homeType' [value]='item.value'>
+                {{ item.name }}
+              </ion-option>
+            </ion-select>
+            <div class="fakeWrap c-flex-row-start" (click)='showModal("enum_homeType" , "familyForm", "addressType")'>
+              <span *ngIf="!familyForm.get('addressType').value">
+                {{ "common.operate.choose" | translate }}
+              </span>
+            </div>
+          </div>
+
+          <div *ngIf="familyForm.get('addressType').dirty && familyForm.get('addressType').errors" class="c-error-tip">
+            {{ "common.tips.invalidValue" | translate}}
+          </div>
+        </div>
+
+        <!-- 住宅邮编 -->
+        <div class="c-input-section c-flex-column-start">
+          <div class="c-input-label c-form-required">
+            {{ "review.form.faimly.homeMail" | translate}}
+          </div>
+          <input formControlName="addressPostCode" type="tel" class="c-form-input" [placeholder]=' "review.form.faimly.homeMailTip" | translate ' maxlength="5"/>
+          <div *ngIf="familyForm.get('addressPostCode').dirty && familyForm.get('addressPostCode').errors" class="c-error-tip">
+            {{ "common.tips.invalidValue" | translate}}
+          </div>
+        </div>
+
+        <!-- 家庭电话 -->
+        <div class="c-input-section c-flex-column-start">
+          <div class="c-input-label c-form-required">
+            {{ "review.form.faimly.homeTelephone" | translate}}
+          </div>
+          <input formControlName="homeTelephone" type="text" class="c-form-input" [placeholder]=' "review.form.faimly.homeTelephone" | translate ' maxlength="11"/>
+          <div *ngIf="familyForm.get('homeTelephone').dirty && familyForm.get('homeTelephone').errors" class="c-error-tip">
+            {{ "common.tips.invalidValue" | translate}}
+          </div>
+        </div>
+
+        <!-- 住址证明 -->
+        <div class="c-input-section c-flex-column-start" (click)='imgChange($event ,"familyForm" , "residentialProof")'>
+          <div class="c-input-label c-form-required">
+            {{ "review.form.faimly.residentialProof" | translate}}
+          </div>
+          <div class="imgUpload c-flex-row-center income">
+            <ion-icon ios="ios-add" md="md-add" class="ico-plus"></ion-icon>
+            <img [src]="familyForm.get('residentialProof').value" alt="" class="c-img-res imgCover">
+          </div>
+          <p class="incomeProofTip"> {{ "review.form.faimly.residentialProofTip" | translate}}</p>
+        </div>
+
+        <button ion-button class="c-submit-button" [disabled]='!familyForm.valid' (click)='submitFamilyForm()'>
+          {{ "common.operate.next" | translate}}
+        </button>
+
+      </form>
+    </ion-slide>
+
+    <ion-slide>
+      <form [formGroup]="incomeForm" class="c-form-wrap">
+
+        <div class="c-input-section c-flex-column-start">
+          <div class="c-input-label c-form-required">
+            {{ "review.form.income.incomeSource" | translate}}
+          </div>
+          <!-- 收入来源 -->
+          <div class="c-flex-column-start" style="width: 100%;position: relative;">
+            <ion-select formControlName='incomeSource' class="c-form-input" style="line-height: calc(1.277778rem - 22px)"
+              [cancelText]='"common.operate.cancel" | translate' [okText]='"common.operate.sure" | translate'>
+              <ion-option *ngFor='let item of enum_income' [value]='item.value'>
+                {{ item.name }}
+              </ion-option>
+            </ion-select>
+            <div class="fakeWrap c-flex-row-start" (click)='showModal("enum_income" , "incomeForm" , "incomeSource")'>
+              <span *ngIf="!incomeForm.get('incomeSource').value">
+                {{ "review.form.income.incomeSource" | translate }}
+              </span>
+            </div>
+          </div>
+          <div *ngIf="incomeForm.get('incomeSource').dirty && incomeForm.get('incomeSource').errors" class="c-error-tip">
+            {{ "common.tips.invalidValue" | translate}}
+          </div>
+        </div>
+        <!-- 公司名称 -->
+        <div class="c-input-section c-flex-column-start">
+          <div class="c-input-label">
+            {{ "review.form.income.company" | translate}}
+          </div>
+          <input formControlName="company" type="text" class="c-form-input" [placeholder]=' "review.form.income.company" | translate ' />
+          <div *ngIf="incomeForm.get('company').dirty && incomeForm.get('company').errors" class="c-error-tip">
+            {{ "common.tips.invalidValue" | translate}}
+          </div>
+        </div>
+        <!-- 公司地址  -->
+        <div class="c-input-section c-flex-column-start">
+          <div class="c-input-label">
+            {{ "review.form.income.companyAddress" | translate}}
+          </div>
+          <!-- 公司详细街区 -->
+          <input formControlName="companyAddress" type="text" class="c-form-input" [placeholder]=' "review.form.faimly.homeAddress" | translate ' />
+          <div *ngIf="incomeForm.get('companyAddress').dirty && incomeForm.get('companyAddress').errors" class="c-error-tip">
+            {{ "review.form.faimly.homeAddress" | translate}}
+          </div>
+          <!-- 公司区 -->
+          <input formControlName="companyBlock" type="text" class="c-form-input" style="margin-top:0.6rem;"
+            [placeholder]=' "review.form.faimly.homeAddressBlock" | translate ' />
+          <div *ngIf="incomeForm.get('companyBlock').dirty && incomeForm.get('companyBlock').errors" class="c-error-tip">
+            {{ "common.tips.invalidValue" | translate}}
+          </div>
+          <!-- 公司del -->
+          <input formControlName="companyMpio" type="text" class="c-form-input" style="margin-top:0.6rem;"
+            [placeholder]=' "review.form.faimly.homeAddressMpio" | translate ' />
+          <div *ngIf="incomeForm.get('companyMpio').dirty && incomeForm.get('companyMpio').errors" class="c-error-tip">
+            {{ "common.tips.invalidValue" | translate}}
+          </div>
+          <!-- 公司城市 -->
+          <input formControlName="companyCity" type="text" class="c-form-input" style="margin-top:0.6rem;"
+            [placeholder]=' "review.form.faimly.homeAddressCity" | translate ' />
+          <div *ngIf="incomeForm.get('companyCity').dirty && incomeForm.get('companyCity').errors" class="c-error-tip">
+            {{ "common.tips.invalidValue" | translate}}
+          </div>
+          <!-- 公司洲 -->
+          <div class="c-flex-column-start" style="width: 100%;position: relative;height: 1.4rem;margin-top:0.6rem;">
+            <ion-select formControlName='companyState' style="width: 100%;max-width: 100%;position: absolute;left: 0;top: 0;border:solid 1px #d3d3d3;color: #acacac;line-height: 0.6rem;border-radius: 6px;padding-left: 0.2rem;height: 1.28rem;"
+              [cancelText]='"common.operate.cancel" | translate' [okText]='"common.operate.sure" | translate'>
+              <ion-option *ngFor='let item of ("review.form.infoForm.placeUd" | translate)' [value]='item.name'>
+                {{ item.name }}
+              </ion-option>
+            </ion-select>
+            <div class="addressInpWrap" style="width:100%;" (click)='showModal("addressGroup" , "incomeForm" , "companyState")'>
+              <span *ngIf=" incomeForm.get('companyState').value == null ">
+                {{ "review.form.faimly.homeAddressState" | translate }}
+              </span>
+            </div>
+          </div>
+        </div>
+        <!-- <div class="c-input-section c-flex-column-start">
+          <div class="c-input-label">
+            {{ "review.form.income.companyAddress" | translate}}
+          </div>
+          <input formControlName="companyAddress" type="text" class="c-form-input" [placeholder]=' "review.form.income.companyAddress" | translate ' />
+          <div *ngIf="incomeForm.get('companyAddress').dirty && incomeForm.get('companyAddress').errors" class="c-error-tip">
+            {{ "common.tips.invalidValue" | translate}}
+          </div>
+        </div> -->
+        <!-- 公司邮编 -->
+        <div class="c-input-section c-flex-column-start">
+          <div class="c-input-label">
+            {{ "review.form.income.companyMail" | translate}}
+          </div>
+          <input formControlName="companyPostCode" type="text" class="c-form-input" [placeholder]=' "review.form.income.companyMail" | translate ' maxlength="5"/>
+          <div *ngIf="incomeForm.get('companyPostCode').dirty && incomeForm.get('companyPostCode').errors" class="c-error-tip">
+            {{ "common.tips.invalidValue" | translate}}
+          </div>
+        </div>
+        <!-- 职业 -->
+        <div class="c-input-section c-flex-column-start">
+          <div class="c-input-label">
+            {{ "review.form.income.position" | translate}}
+          </div>
+          <input formControlName="position" type="text" class="c-form-input" [placeholder]=' "review.form.income.position" | translate ' />
+          <div *ngIf="incomeForm.get('position').dirty && incomeForm.get('position').errors" class="c-error-tip">
+            {{ "common.tips.invalidValue" | translate}}
+          </div>
+        </div>
+        <!-- 收入证明 -->
+        <div class="c-input-section c-flex-column-start" (click)='imgChange($event ,"incomeForm" , "incomeProof")'>
+          <div class="c-input-label" [ngClass]="{'c-form-required': incomeStatus}">
+            {{ "review.form.income.incomeProof" | translate}}
+          </div>
+          <div class="imgUpload c-flex-row-center income">
+            <ion-icon ios="ios-add" md="md-add" class="ico-plus"></ion-icon>
+            <!-- <input id="incomeProof" type='file' accept='image/*' capture='camera' (change) = ''>  -->
+            <img [src]="incomeForm.get('incomeProof').value" alt="" class="c-img-res imgCover">
+          </div>
+          <p class="incomeProofTip"> {{ "review.form.income.incomeProofTip" | translate}}</p>
+        </div>
+        <button ion-button class="c-submit-button" [disabled]='!incomeForm.valid' (click)='submitIncomeForm()'>
+          {{ "common.operate.next" | translate}}
+        </button>
+
+      </form>
+    </ion-slide>
+
+    <ion-slide>
+      <form [formGroup]="contactsForm">
+
+        <div formArrayName="userContactInputVOS">
+          <div class="secRowInfo" *ngFor="let item of userContactInputVOS.controls;let k = index" [formGroupName]="k">
+            <div class="title">
+              {{ "review.form.contacts.sorts" + "." + k | translate}}
+            </div>
+            <div class="c-flex-column-start">
+              <input class="c-form-input" formControlName='contactIndex' type="c-form-input" disabled>
+              <div class="fakeWrap c-flex-row-start adc" (click)='getusecontact( k - 0 + 1 )'>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+      <button style="margin: 0 .333333rem;width: calc(100% - 0.333333rem * 2);" ion-button class="c-submit-button"
+        [disabled]='!contactsForm.valid' (click)='submitContact()'>
+        {{ "common.operate.put" | translate }}
+      </button>
+    </ion-slide>
+  </ion-slides>
+</ion-content>
+<div class="curpMask" *ngIf="curpPop"></div>
+<div class="curpMaskPop" *ngIf="curpPop">
+  <p>¿Dónde encuentro mi CURP?</p>
+  <p>Credencial para votar(INE/IFE)</p>
+  <p>Estado de Cuenta AFORE</p>
+  <p>Recibo de Nómina</p>
+  <div class="curpimgbox">
+    <img src="../../assets/imgs/curp.jpg" alt="">
+  </div>
+  <div class="pop-close" (click)="closePop()"></div>
+</div>

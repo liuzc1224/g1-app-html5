@@ -1,0 +1,26 @@
+<ion-content class="has-header-view">
+
+  <div class="spinner_tip" *ngIf="!purposeList">
+  </div>
+
+  <div *ngIf="purposeList">
+    <ul class="list-wrap">
+      <li *ngFor='let item of purposeList' class="c-flex-row-space" (click)='selectItem(item.id)'>
+        <span>
+          {{ item.description }}
+        </span>
+        <ion-checkbox [checked]="currentId === item.id" style="z-index: -1"></ion-checkbox>
+      </li>
+    </ul>
+
+    <button ion-button class="c-submit-button submitBtn" (click)='submitRealName()'>
+      {{ "common.operate.next" | translate}}
+    </button>
+  </div>
+</ion-content>
+<div class="uploadmask" *ngIf="showapkmask"></div>
+<div class="uploadpoup" *ngIf="showapkmask">
+  <p class="pouptxt">{{ "common.tips.uploadTitle" | translate}}</p>
+  <p class="poupcontent">{{ "common.tips.uploadApp" | translate}}</p>
+  <p class="poupbtn" (click)="uploadnewapp()">{{ "common.operate.upload" | translate}}</p>
+</div>

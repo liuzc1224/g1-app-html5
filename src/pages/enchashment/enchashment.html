@@ -1,0 +1,177 @@
+<ion-content>
+  <!-- 提现到账户 -->
+  <form [formGroup]="validateForm" class="c-form-wrap">
+      <div class="c-input-section c-flex-column-start">
+        <div class="c-input-label c-form-required">
+          {{ "enchashment.form.account" | translate}}
+        </div>
+
+        <div class="c-flex-column-start" style="width: 100%;position: relative;">
+          <input formControlName='bankCardNum' class="c-form-input" style="line-height: calc(1.277778rem - 22px)" type="text" />
+          <!-- <ion-option *ngFor = 'let item of enum_bank' [value]='item.value' >
+                          {{ item.name }}
+                      </ion-option> -->
+          <!-- (click) = 'showModal("enum_bank" , "validateForm" , "bankCardId")' -->
+          <div class="fakeWrap c-flex-row-start" (click)='makeAccount()'>
+            <span *ngIf="!validateForm.get('bankCardId').value">
+              {{ "enchashment.tips.choseAccount" | translate}}
+            </span>
+          </div>
+        </div>
+        <div *ngIf="validateForm.get('bankCardId').dirty && validateForm.get('bankCardId').errors" class="c-error-tip">
+          {{ "common.tips.invalidValue" | translate}}
+        </div>
+      </div>
+    </form>
+  <div class="c-flex-row-start">
+    <!-- 提现金额 -->
+    <div class="infoContent c-contentWrap">
+      <div class="header">
+        {{ "enchashment.tips.title" | translate }}
+      </div>
+
+      <div class="header-money" *ngIf='orderInfo'>
+        {{ orderInfo.auditMoney }}
+      </div>
+    </div>
+  </div>
+  <div class="c-contentWrap infoContent c-flex-column-start " style="padding-bottom:0;">
+    <!-- 借款期限 -->
+    <div class="sectionInfo c-flex-row-space" style="padding-top:0.1rem;">
+      <div class="infoLeft">
+        {{ "enchashment.tips.days" | translate}}
+      </div>
+      <div class="infoRight" *ngIf='orderInfo'>
+        {{ orderInfo.loanDays }}
+        <span>
+          {{ "enchashment.dayUnit" | translate}}
+        </span>
+      </div>
+    </div>
+    <!-- 日利率 -->
+    <div class="sectionInfo">
+      <div class=" c-flex-row-space">
+        <div class="infoLeft">
+          {{ "enchashment.tips.rate" | translate}}
+        </div>
+
+        <div class="infoRight" *ngIf='orderInfo'>
+          {{ (orderInfo.lendRate * 100).toFixed(2) }}%
+        </div>
+      </div>
+      <div class="smallTip">
+        {{ "enchashment.tips.rateMark" | translate}}
+      </div>
+    </div>
+    <!-- 借款利息 -->
+    <div class="sectionInfo c-flex-row-space" style="padding-top:0.5rem;">
+      <div class="infoLeft">
+        {{ "enchashment.tips.lendRateMoney" | translate}}
+      </div>
+      <div class="infoRight" *ngIf='pageInfo'>
+        {{ pageInfo.lendRateMoney }}
+      </div>
+    </div>
+    <!-- 其他费用 -->
+    <div class="sectionInfo" (click)="showFee()" style="position:relative">
+      <span class="cuta" [ngClass]="{'active': !feeStatus}"></span>
+      <div class=" c-flex-row-space">
+        <div class="infoLeft">
+          {{ "enchashment.tips.otherFee" | translate}}
+        </div>
+        <div class="infoRight" *ngIf='pageInfo' style="padding-right:.638889rem;">
+          {{ pageInfo.totalOtherCost }}
+        </div>
+      </div>
+    </div>
+    <!-- 审批服务费 -->
+    <div class="sectionInfo" *ngIf="feeStatus" style="background:#f4f4f4">
+      <div class=" c-flex-row-space">
+        <div class="infoLeft">
+          {{ "enchashment.tips.aditFee" | translate}}
+        </div>
+        <div class="infoRight" *ngIf='pageInfo'>
+          {{ pageInfo.auditServiceCost }}
+        </div>
+      </div>
+    </div>
+    <!-- 技术服务费 -->
+    <div class="sectionInfo" *ngIf="feeStatus" style="background:#f4f4f4">
+      <div class=" c-flex-row-space">
+        <div class="infoLeft">
+          {{ "enchashment.tips.serviceFee" | translate}}
+        </div>
+        <div class="infoRight" *ngIf='pageInfo'>
+          {{ pageInfo.techServiceCost }}
+        </div>
+      </div>
+    </div>
+    <!-- 16%增值税 -->
+    <div class="sectionInfo" style="border-bottom:none;" *ngIf="feeStatus" style="background:#f4f4f4;border-bottom:none;">
+      <div class=" c-flex-row-space">
+        <div class="infoLeft">
+          {{ "enchashment.tips.IVA" | translate}}
+        </div>
+        <div class="infoRight" *ngIf='pageInfo'>
+          {{ pageInfo.appreciationMoney }}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <!-- 选择优惠券 -->
+    <div class="c-flex-row-start">
+      <div class="infoContent c-contentWrap c-flex-row-space" style="border-top:1px solid #eef1f6;padding: .433333rem .3333333rem;" (click)="gotoChoose()">
+        <div class="header" style="font-size:.416667rem">
+          {{ "enchashment.tips.reward" | translate }} :
+        </div>
+
+        <div *ngIf='couponInfo'>
+          {{ couponAmount }} >
+        </div>
+        <div *ngIf='!couponInfo'>
+          Por favor elija >
+        </div>
+      </div>
+    </div>
+
+    <!-- 实际应还金额 -->
+    <div class="sectionInfo" style="padding-left: .333333rem;">
+      <div class=" c-flex-row-space">
+        <div class="infoLeft">
+          {{ "enchashment.tips.repay" | translate}}
+        </div>
+
+        <div class="infoRight" *ngIf='repayPlan'>
+          {{ repayPlan }}
+        </div>
+      </div>
+      <div class="smallTip">
+        {{ "enchashment.tips.repayMark" | translate}}
+      </div>
+    </div>
+
+    <!-- 勾选框 -->
+    <div class="acceptWrap c-contentWrap">
+      <div class="c-flex-row-start" style="position: relative;">
+        <div class="acceptLeft" (click)='accept("first")'>
+          <ion-icon name="ios-checkbox" [ngClass]='{"icoActive" : first == true , "icoDefault" : first == false }'></ion-icon>
+        </div>
+        <div class="acceptRight">
+          <!-- {{ "enchashment.accept.first" | translate}} -->
+          De acuerdo <span (click)='gotoheml("contractOne")'>Carátula crédito simple son regulación Condusef</span> <span (click)='gotoheml("contractTwo")'>Tabla de Amortizacion sin Condusef</span>
+          <span (click)='gotoheml("contractThree")'>Loan Agreement without Condusef</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="padWrap" *ngIf='padShow'>
+    <number-pad [showForget]='showForget' [title]='padTitle' (cancel)='numCancel($event)' (complete)='numComplete($event)'>
+    </number-pad>
+  </div>
+  <button ion-button class="c-submit-button submitBtn" [disabled]='!this.validateForm.get("bankCardNum").value || !first' (click)='submitInfoForm($event)'>
+    {{ "common.operate.next" | translate}}
+  </button>
+</ion-content>

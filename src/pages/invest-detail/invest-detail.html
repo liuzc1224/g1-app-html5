@@ -1,0 +1,42 @@
+<ion-content class="has-header-view" style="background: #eef1f6;">
+  <div class="invest-detail" *ngIf=" pageInfo ">
+    <div class="inv-detail-h">
+      <p>{{"detail.revMoney" | translate}}</p>
+      <p>{{pageInfo.currentRepay ? pageInfo.currentRepay : '0.00'}}</p>
+      <p class="ras-tip">asdasdasdas</p>
+      <!-- 1待审核[waiting]  2,3提现中[ok]  4待还款[repeat]  5逾期中[err]  6已完成[finshed] 7部分还款 8~12未通过[finshed] -->
+      <p class="ras-tip waiting" *ngIf=" pageInfo.status === 1 ">{{ ("common.orderStatus" | translate)[pageInfo.status]}}</p>
+      <p class="ras-tip finshed" *ngIf=" pageInfo.status >= 6 ">{{ ("common.orderStatus" | translate)[pageInfo.status]}}</p>
+      <p class="ras-tip ok" *ngIf=" pageInfo.status === 2 || pageInfo.status === 3 ">{{ ("common.orderStatus" | translate)[pageInfo.status]}}</p>
+      <p class="ras-tip err" *ngIf=" pageInfo.status === 5 ">{{ ("common.orderStatus" | translate)[pageInfo.status]}}</p>
+      <p class="ras-tip repeat" *ngIf=" pageInfo.status === 4 ">{{ ("common.orderStatus" | translate)[pageInfo.status]}}</p>
+      <p class="ras-tip repeat">{{ ("common.orderStatus" | translate)[pageInfo.status]}}</p>
+    </div>
+    <!-- {{pageInfo.currentRepay ? pageInfo.currentRepay : '0.00' }} -->
+    <!-- ["订单号", "借款金额(比索)", "借款期限(天)", "借款日利率", "借款利息(比索)", "应还金额(比索)", "增值税", "滞纳金", "优惠券", "实际应还金额(比索)", "借款日期", "应还日期", "取款账户", "取款码", "还款码" ] -->
+    <div class="inv-detail-bot">
+      <header>{{"detail.detailHeader" | translate}}</header>
+      <div *ngFor="let item of infoGroup;let i = index;">
+        <p class="solid" *ngIf="( !item['isEmpty'] || pageInfo[item['reject']] )">{{ item['txt'] }}</p>
+        <p class="bout" *ngIf="( !item['isEmpty'] || pageInfo[item['reject']] )">{{pageInfo[item['reject']]}}<span *ngIf="item['type']" class="copy-btn" (click) = "copy(pageInfo[item['reject']])" >{{"common.btnTxt.copy" | translate}}</span></p>
+      </div>
+      <p style="color:#d00;font-size: 0.44rem;text-decoration: underline;" (click)="goaboutmoney()">{{"detail.knows" | translate}}</p>
+      <p class="weight-txt">
+        <span>!</span>{{"detail.yqTip" | translate}}</p>
+    </div>
+  </div>
+  <div *ngIf="pageInfo && ( pageInfo.status === 4 || pageInfo.status === 5 )">
+      <button ion-button class="c-submit-button submitBtn" (click)='realRepay()'>
+        {{"detail.repayQr" | translate}}
+      </button>
+      <!-- <button ion-button class="c-submit-button submitBtn" *ngIf="btnStatus === '0' || btnStatus === '4'" (click)='onlineRepay()'>
+        {{"detail.repayOnline" | translate}}
+      </button>
+      <button ion-button class="c-submit-button submitBtn" *ngIf="btnStatus === '1'" [disabled] = 'true'>
+        {{"detail.repaying" | translate}}
+      </button>
+      <button ion-button class="c-submit-button submitBtn" *ngIf="btnStatus === '3'" (click)='onlineRepay()'>
+        {{"detail.repayfail" | translate}}
+      </button> -->
+  </div>
+</ion-content>

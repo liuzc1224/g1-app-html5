@@ -1,0 +1,74 @@
+<ion-content>
+    <div class="c-contentWrap">
+        <div class="header c-flex-row-start">
+            <ion-icon name="information-circle" class="iconInfo"></ion-icon>
+          <div>
+            {{ "account.clabeCard" | translate }}
+          </div>
+        </div>
+    </div>
+  
+    <form [formGroup]="validateForm" class="c-form-wrap">
+        <!-- <div class="c-input-section c-flex-column-start">
+            <div class="c-input-label c-form-required">
+                {{ "account.form.bankName" | translate }}
+            </div>
+            <div class="c-flex-column-start" style="width: 100%;position: relative;">
+                <ion-select
+                formControlName='bankId'
+                class="c-form-input"
+                style="line-height: calc(1.277778rem - 22px)"
+                [cancelText] = '"common.operate.cancel" '
+                [okText] =  '"common.operate.sure" '
+                >
+                    <ion-option *ngFor = 'let item of enum_bank' [value]='item.value' >
+                        {{ item.name }}
+                    </ion-option>
+                </ion-select>
+                <div class="fakeWrap c-flex-row-start" (click) = 'showModal("enum_bank" , "validateForm" , "bankId")'>
+                    <span *ngIf = "!validateForm.get('bankId').value">
+                        {{ "account.tips.bankName"  }}
+                    </span>
+                </div>
+            </div>
+            <div *ngIf="validateForm.get('bankId').dirty && validateForm.get('bankId').errors" class="c-error-tip">
+              {{ "common.tips.invalidValue" }}
+            </div>
+        </div> -->
+  
+        <div class="c-input-section c-flex-column-start">
+            <div class="c-input-label c-form-required">
+                {{ "account.form.clabe" | translate }}
+            </div>
+            <input formControlName="clabeNum" type="text" class="c-form-input" [placeholder] = ' "account.tips.clabe" | translate ' />
+            <div *ngIf="validateForm.get('clabeNum').dirty && validateForm.get('clabeNum').errors" class="c-error-tip">
+                {{ "account.ops.clabe" | translate }}
+            </div>
+        </div>
+        <!-- <div class="c-input-section c-flex-column-start">
+            <div class="c-input-label">
+                {{ "account.form.bankCardNum" | translate }}
+            </div>
+            <p class="c-orange">{{ "account.checkInfo" | translate }}</p>
+            <input formControlName="bankCardNum" [(ngModel)] = 'bankCardNum' type="text" class="c-form-input" [placeholder] = ' "account.tips.bankCardNum" | translate ' />
+            <div *ngIf="validateForm.get('bankCardNum').dirty && validateForm.get('bankCardNum').errors" class="c-error-tip">
+                {{ "account.ops.bankCardNum" | translate }}
+            </div>
+        </div> -->
+  
+        <div class="c-input-section c-flex-column-start">
+            <div class="c-input-label c-form-required">
+                {{ "account.form.holderName" | translate }}
+            </div>
+            <input disabled formControlName="userName" type="text" class="c-form-input under-line" [placeholder] = ' "account.tips.holderName" ' />
+            <div *ngIf="validateForm.get('userName').dirty && validateForm.get('userName').errors" class="c-error-tip">
+                {{ "common.tips.invalidValue" | translate}}
+            </div>
+        </div>
+  
+                <!-- [disabled] = '!infoForm.valid' -->
+        <button ion-button class="c-submit-button" [disabled] = '!validateForm.valid'  (click) = 'submit($event)' >
+            {{ "account.form.saveAccount" | translate}}
+        </button>
+    </form>
+</ion-content>

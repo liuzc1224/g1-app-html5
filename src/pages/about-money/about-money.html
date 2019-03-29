@@ -1,0 +1,58 @@
+<!-- <single-header [midTxt] = " 'common.headerMidTxt.f' | translate "></single-header> -->
+<ion-content class="has-header-view" style="background: #eef1f6;">
+  <div class="about-money">
+    <div class="about-money-user mongin-b10">
+      <div class="about-money-user-l">
+        <p>{{('aboutMoney.userBoxTil' | translate)[0]}}</p>
+        <p>{{receiveBankName}}</p>
+      </div>
+      <div class="about-money-user-r">
+        <!-- <div class="copy-btn" (click) = "copy(receiveAccount)">{{'common.btnTxt.copy' | translate}}</div> -->
+      </div>
+    </div>
+    <div class="about-money-user mongin-b20">
+      <div class="about-money-user-l">
+        <p>{{('aboutMoney.userBoxTil' | translate)[1]}}</p>
+        <p>{{receiveAccount}}</p>
+      </div>
+      <div class="about-money-user-r">
+        <div class="copy-btn" (click) = "copy(receiveAccount)">{{'common.btnTxt.copy' | translate}}</div>
+      </div>
+    </div>
+    <div class="about-money-user mongin-b20">
+      <div class="about-money-user-l">
+        <p>{{('aboutMoney.userBoxTil' | translate)[2]}}</p>
+        <p>{{receiveClabe}}</p>
+      </div>
+      <div class="about-money-user-r">
+        <div class="copy-btn" (click) = "copy(receiveClabe)">{{'common.btnTxt.copy' | translate}}</div>
+      </div>
+    </div>
+    <div class="about-money-user mongin-b20">
+      <div class="about-money-user-l">
+        <p>{{('aboutMoney.userBoxTil' | translate)[3]}}</p>
+        <p>{{receiveAccountName}}</p>
+      </div>
+      <div class="about-money-user-r">
+        <!-- <div class="copy-btn" (click) = "copy(repayCode)">{{'common.btnTxt.copy' | translate}}</div> -->
+      </div>
+    </div>
+    <div class="about-money-user mongin-b20">
+      <div class="about-money-user-l">
+        <p>{{('aboutMoney.userBoxTil' | translate)[4]}}</p>
+        <p>{{repayCode}}</p>
+      </div>
+      <div class="about-money-user-r">
+        <div class="copy-btn" (click) = "copy(repayCode)">{{'common.btnTxt.copy' | translate}}</div>
+      </div>
+    </div>
+
+    <div class="cloud-group" *ngFor="let item of listInfo">
+      <header>{{item.title}}</header>
+      <div class="txt-wrap" *ngFor="let txt of item.contents;index as i">
+        <i>{{i + 1}}</i>
+        <p>{{txt}}</p>
+      </div>
+    </div>
+  </div>
+</ion-content>

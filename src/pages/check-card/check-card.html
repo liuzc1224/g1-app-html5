@@ -1,0 +1,65 @@
+<ion-content>
+  <form [formGroup]="validateForm" class="c-form-wrap">
+
+    <div class="c-input-section c-flex-column-start">
+      <div class="c-input-label c-form-required">
+        {{ "account.form.bankCardNum" | translate }}
+      </div>
+      <div class="c-flex-column-start" style="width: 100%;position: relative;">
+        <input formControlName='account' class="c-form-input" style="line-height: calc(1.277778rem - 22px)" type="text" [placeholder] = ' "account.tips.bankCardNum" | translate ' maxlength="20"/>
+        <div *ngIf="validateForm.get('account').dirty && validateForm.get('account').errors" class="c-error-tip">
+          {{ "account.tips.bankCardNum" | translate }}
+        </div>
+      </div>
+    </div>
+
+    <div class="c-input-section c-flex-column-start">
+      <div class="c-input-label c-form-required">
+        {{ "account.form.cvv2" | translate }}
+      </div>
+      <div class="c-flex-column-start" style="width: 100%;position: relative;">
+        <input formControlName='cvv2' class="c-form-input" style="line-height: calc(1.277778rem - 22px)" type="text" [placeholder] = ' "account.tips.cvv2" | translate ' maxlength="3" />
+        <div *ngIf="validateForm.get('cvv2').dirty && validateForm.get('cvv2').errors" class="c-error-tip">
+          {{ "account.tips.cvv2" | translate }}
+        </div>
+      </div>
+    </div>
+
+    <div class="c-input-section c-flex-column-start">
+      <div class="c-input-label c-form-required">
+        {{ "account.form.month" | translate }}
+      </div>
+      <div class="c-flex-column-start" style="width: 100%;position: relative;">
+        <input formControlName='month' class="c-form-input" style="line-height: calc(1.277778rem - 22px)" type="text" [placeholder] = ' "account.tips.month" | translate ' maxlength="2" />
+        <div *ngIf="(validateForm.get('month').dirty && validateForm.get('month').errors) || validateForm.get('month').value -1 > 11" class="c-error-tip">
+          {{ "account.tips.month" | translate }}
+        </div>
+      </div>
+    </div>
+
+    <div class="c-input-section c-flex-column-start">
+      <div class="c-input-label c-form-required">
+        {{ "account.form.year" | translate }}
+      </div>
+      <div class="c-flex-column-start" style="width: 100%;position: relative;">
+        <input formControlName='year' class="c-form-input" style="line-height: calc(1.277778rem - 22px)" type="text" [placeholder] = ' "account.tips.year" | translate ' maxlength="2" />
+        <div *ngIf="validateForm.get('year').dirty && validateForm.get('year').errors" class="c-error-tip">
+          {{ "account.tips.year" | translate }}
+        </div>
+      </div>
+    </div>
+
+    <div class="c-input-section c-flex-column-start">
+      <div class="c-input-label c-form-required">
+        {{ "account.form.holderName" | translate }}
+      </div>
+      <div class="c-flex-column-start" style="width: 100%;position: relative;">
+        <input formControlName='userName' class="c-form-input underline" style="line-height: calc(1.277778rem - 22px)" disabled type="text" [placeholder] = ' "account.tips.clabe" | translate '/>
+      </div>
+    </div>
+    <p class="check-warning">{{ "account.form.checkWarning" | translate }}</p>
+    <button ion-button class="c-submit-button" [disabled] = '(!validateForm.valid) || (validateForm.get("month").value -1 > 11)'  (click) = 'submit($event)' >
+      {{ "account.form.check" | translate }}
+    </button>
+  </form>
+</ion-content>

@@ -1,0 +1,50 @@
+<ion-content class="has-header-view">
+  <div class="contrTwoWrap">
+    <div class="orderNo" style="text-align:right;">N° Crédito:{{ info && info.orderNo }}</div>
+    <!-- 偿还表 -->
+    <div style="font-weight: 900;">
+      PANDA DIGITAL, S. A. DE C. V. <br>
+      <span class="undeline">[ {{ info && info.companyAddress }} ]</span>
+    </div>
+    <div>
+      <p class="textCent">TABLA DE AMORTIZACIÓN</p>
+      <p>Este formato de TABLA DE AMORTIZACIÓN se adjunta y forma parte del Contrato de Crédito Simple suscrito con
+        fecha [{{ info && info.signedDay }}] de [{{ info && info.signedMonth }}] de [{{ info && info.signedYear }}] entre PANDA DIGITAL, S .A. DE C. V. y [{{ info && info.username }}].
+      </p>
+      <p>Importe total de Crédito: $[{{ info && info.applyMoney }}].00 ([{{ info && info.applyMoneyUpper }}] PESOS 00/100 M.N.) </p>
+      <p>Tasa de Interés Anual Ordinaria: [{{ info && info.annualInterestRate }}] % ([{{ info && info.annualInterestRateUppee }}])</p>
+    </div>
+    <table class="repayTable" width="100%" cellspacing="0" style="text-align: center;">
+      <tr>
+        <th>No. DE PAGO</th>
+        <th>FECHA DE PAGO</th>
+        <th>CAPITAL</th>
+        <th>INTERESES ORDINARIOS</th>
+        <th>IVA DE INTERES </th>
+        <th>PAGO</th>
+        <th>SALDO POR PAGAR</th>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>{{ info && info.paymentDate }}</td>
+        <td>$[{{ info && info.applyMoney }}].00</td>
+        <td>$[{{ info && info.ordinaryRate }}].00</td>
+        <td>$[{{ info && info.appreciationRate }}].00</td>
+        <td>$[{{ info && info.currentRepay }}].00</td>
+        <td>$[0].00</td>
+      </tr>
+      <tr>
+        <td>TOTALES</td>
+        <td>{{ info && info.paymentDate }}</td>
+        <td>$[{{ info && info.applyMoney }}].00</td>
+        <td>$[{{ info && info.ordinaryRate }}].00</td>
+        <td>$[{{ info && info.appreciationRate }}].00</td>
+        <td>$[{{ info && info.currentRepay }}].00</td>
+        <td>$[0].00</td>
+      </tr>
+    </table>
+    <div class="textCent undeline" style="color:blue;padding:.416667rem 0 0;">
+      www.pandafintech.com.mx
+    </div>
+  </div>
+</ion-content>

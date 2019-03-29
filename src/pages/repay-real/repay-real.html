@@ -1,0 +1,73 @@
+<ion-content style="background: rgb(238 , 241 ,246) ;">
+
+  <div class="spinner_tip" [hidden]='resMark'>
+
+  </div>
+
+  <div [hidden]='!resMark'>
+
+      <div class="repayQr_wrap">
+          <div class="repayQr_section">
+                <span>
+                    {{ "repayQr.qrTitle" | translate }}
+                </span>
+          </div>
+          <div class="repayQr_Block">
+              <!--<canvas id="repayQr_qr" ></canvas>-->
+              <img class="repayQr_qr" id="repayQr_qr" [src]="qrCode" (click) = 'showModal()' />
+              <div class="repayQr_magnify">
+                  {{ "repayQr.magnify" | translate }}
+              </div>
+          </div>
+          <div class="repayQr_section">
+                <span>
+                    {{ "repayQr.qrList" | translate }}
+                </span>
+          </div>
+          <div class="repayQr_Block qrshop-list">
+            <div class="qr-shop"><img src="../../assets/imgs/qrList/qr_shop_1.png" alt=""></div>
+            <div class="qr-shop"><img src="../../assets/imgs/qrList/qr_shop_2.png" alt=""></div>
+            <div class="qr-shop"><img src="../../assets/imgs/qrList/qr_shop_3.png" alt=""></div>
+            <div class="qr-shop"><img src="../../assets/imgs/qrList/qr_shop_4.png" alt=""></div>
+            <div class="qr-shop"><img src="../../assets/imgs/qrList/qr_shop_5.png" alt=""></div>
+            <div class="qr-shop"><img src="../../assets/imgs/qrList/qr_shop_6.png" alt=""></div>
+            <div class="qr-shop"><img src="../../assets/imgs/qrList/qr_shop_7.png" alt=""></div>
+            <div class="qr-shop"><img src="../../assets/imgs/qrList/qr_shop_8.png" alt=""></div>
+            <div class="qr-shop"><img src="../../assets/imgs/qrList/qr_shop_9.png" alt=""></div>
+            <div class="qr-shop"><img src="../../assets/imgs/qrList/qr_shop_10.png" alt=""></div>
+            <div class="qr-shop"><img src="../../assets/imgs/qrList/qr_shop_11.png" alt=""></div>
+            <div class="qr-shop"><img src="../../assets/imgs/qrList/qr_shop_12.png" alt=""></div>
+            <div class="qr-shop"><img src="../../assets/imgs/qrList/qr_shop_13.png" alt=""></div>
+            <div class="qr-shop"><img src="../../assets/imgs/qrList/qr_shop_14.png" alt=""></div>
+            <div class="qr-shop"><img src="../../assets/imgs/qrList/qr_shop_15.png" alt=""></div>
+            <div class="qr-shop"><img src="../../assets/imgs/qrList/qr_shop_16.png" alt=""></div>
+            <div class="qr-shop"><img src="../../assets/imgs/qrList/qr_shop_17.png" alt=""></div>
+            <div class="qr-shop"><img src="../../assets/imgs/qrList/qr_shop_18.png" alt=""></div>
+            <div class="qr-shop"><img src="../../assets/imgs/qrList/qr_shop_19.png" alt=""></div>
+            <div class="qr-shop"><img src="../../assets/imgs/qrList/qr_shop_20.png" alt=""></div>
+            <div class="qr-shop"><img src="../../assets/imgs/qrList/qr_shop_21.png" alt=""></div>
+            <div class="qr-shop"><img src="../../assets/imgs/qrList/qr_shop_22.png" alt=""></div>
+            <div class="qr-shop"><img src="../../assets/imgs/qrList/qr_shop_23.png" alt=""></div>
+            <div class="qr-shop"><img src="../../assets/imgs/qrList/qr_shop_24.png" alt=""></div>
+        </div>
+      </div>
+  </div>
+  <!--<div class="repayQr_account repayQr_section">-->
+  <!--<span>-->
+  <!--{{ "repayQr.acountTitle" | translate }}-->
+  <!--</span>-->
+  <!--<div class="repayQr_accountWrap c-flex-row-start">-->
+  <!--<div class="accountWrap-left">-->
+  <!--<div>asdasdasd</div>-->
+  <!--<div>asdasdasd</div>-->
+  <!--</div>-->
+  <!--<div class="accountWrap-right c-flex-row-center c-text-blue" (click) = 'clipText()'>-->
+  <!--{{ "operate.copy" | translate }}-->
+  <!--</div>-->
+  <!--</div>-->
+  <!--</div>-->
+</ion-content>
+
+<div class="repayQr_modal c-flex-row-center" (click) = 'hideModal()'>
+  <div id="repayQr_img"></div>
+</div>

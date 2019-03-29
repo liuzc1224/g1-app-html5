@@ -1,0 +1,24 @@
+<!-- <single-header [midTxt] = " 'common.headerMidTxt.d' | translate "></single-header> -->
+
+<ion-content class="has-header-view">
+    <div class="help-center">
+        <div class="help-center-h">
+            <div class="help-center-h-l">
+                <img src="../../assets/imgs/tel.png" alt="">
+                <a href="tel:525512802610">{{ "helpCenter.tel" | translate }}</a>
+            </div>
+            <div class="help-center-h-r">
+                <img src="../../assets/imgs/Email.png" alt="">
+                <span (click)="showPopBtn()">E-mail</span>
+            </div>
+        </div>
+        <ul class="help-center-list" *ngIf = " expanConf.length ">
+            <li *ngFor='let item of expanConf'><expan-box [headerTxt] = 'item.title' [innerTxt] = 'item.contents'></expan-box></li>
+        </ul>
+    </div>
+</ion-content>
+<div class="email-mark" *ngIf="showPop"></div>
+<div class="email-pop" *ngIf="showPop">
+    <p>service.pandafintech@gmail.com</p>
+    <div class="ok-btn" (click)='copyEmail("service@pandafintech.com.mx")'>copy</div>
+</div>

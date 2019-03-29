@@ -1,0 +1,207 @@
+$baseFontSize: 72;
+@function mixrem($px) {
+  @return ($px / $baseFontSize) * 1rem;
+}
+
+.toolbar-title-ios {
+  font-size: mixrem(32)
+}
+
+.item-ios {
+  padding: 0;
+}
+
+.item-ios.item-block .item-inner {
+  padding: 0;
+}
+
+.range-ios .range-knob-handle {
+  width: 2.75rem;
+}
+
+.range-ios .range-knob {
+  left: 0;
+  width: 100%;
+  background: #3573fa;
+  font-size: .416667rem;
+  color: #fff;
+  border-radius: .5rem;
+}
+
+.home-main {
+  position: relative;
+  .home-info {
+    height: 6.055556rem;
+    width: 100%;
+    overflow: hidden;
+    color: #fff;
+    background: #3573fa url(../../assets/imgs/homePage/bling.png) no-repeat center bottom;
+    background-size: contain;
+    text-align: center;
+    >p {
+      font-weight: normal;
+      font-stretch: normal;
+    }
+    >p:nth-child(1) {
+      font-family: HelveticaNeueLTPro-Ex;
+      font-size: mixrem(26);
+      line-height: mixrem(44);
+      font-weight: normal;
+      font-stretch: normal;
+      margin-top: mixrem(68)
+    }
+    >p:nth-child(2) {
+      font-family: FZLTZCHJW-GB1-0;
+      font-size: mixrem(64);
+      line-height: mixrem(44);
+      margin: mixrem(35) 0 mixrem(75);
+      span {
+        font-size: mixrem(26);
+      }
+    }
+  }
+  .home-pos-box {
+    position: absolute;
+    width: mixrem(670);
+    height: mixrem(646);
+    background-color: #ffffff;
+    box-shadow: 3px 5px 6px 1px rgba(146, 146, 146, 0.35);
+    border-radius: .3125rem;
+    left: 50%;
+    margin-left: - mixrem(335);
+    top: mixrem(368);
+    padding: .611111rem .513889rem 0;
+    overflow: hidden;
+    h3 {
+      color: #545454;
+      font-size: .416667rem;
+      line-height: .416667rem;
+    }
+    .pos-htip {
+      font-size: .333333rem;
+      color: #acacac;
+      margin: .25rem 0 .472222rem;
+      &.bot {
+        font-size: .361111rem;
+        color: #faaf2c;
+      }
+    }
+    &.examining,&.failed {
+      padding: 0;
+      .icon-box {
+        width: 2.097222rem;
+        height: 1.722222rem;
+        margin: 2.430556rem auto .569444rem;
+      }
+      .explain-txt {
+        font-family: HelveticaNeueLTPro-Ex;
+        font-size: .361111rem;
+        font-weight: normal;
+        font-stretch: normal;
+        line-height: 0.588889rem;
+        color: #545454;
+        text-align: center;
+      }
+      .margin-t75{
+        margin: 1.041667rem auto 0;
+      }
+    }
+    &.Repayments{
+      padding: 1.069444rem 0 0;
+      .qus{
+        padding-left: .680556rem;
+        color: #545454;
+        font-size: .388889rem;
+        margin-bottom: .347222rem;
+      }
+      .anser{
+        padding-left: .680556rem;
+        color: #acacac;
+        font-size: .361111rem;
+        margin-bottom: .319444rem;
+      }
+      .margin-t150{
+        margin: 1.944444rem auto 0;
+      }
+    }
+  }
+  .out-wrap{
+    position: relative;
+    width: 100%;
+    height: 0.61111rem;
+    line-height: 0.61111rem;
+    font-size: .361111rem;
+    // .inner-lb{
+    //   position: absolute;
+    //   top: 0;
+    //   right: -9rem;
+    //   width: 9rem;
+    // }
+  }
+}
+
+.enchashment{
+  margin-top: 1.263889rem ;
+  font-size: .361111rem ;
+  margin-bottom: .430556rem ;
+  text-align: center ;
+  color: #acacac;
+}
+.cashMoney{
+  font-size: .888889rem ;
+  font-weight: bold ;
+  text-align: center ;
+  margin-bottom: .513889rem ;
+  color:  #545454 ;
+}
+.loanRate{
+  font-size: .361111rem ;
+  text-align: center ;
+  color: #acacac;
+}
+
+.rawRate ,
+.nowRate{
+  margin:  0 1px;
+}
+.rawRate{
+  text-decoration: line-through
+}
+.nowRate{
+  color: rgb(250 , 175 , 44) ;
+}
+.enchashmentBtn{
+  position: absolute ;
+  bottom: 1.027778rem ;
+  left : 50% ;
+  margin-left:  -4.173611rem;
+}
+
+
+@keyframes kf-marque-animation{ 0% { transform: translateX(0); } 100% { transform: translateX(-33.3%); } }
+.marquee{
+  width: 400px;
+  height: 44px;
+  line-height: 44px;
+  display: block;
+  margin: 0 auto;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: clip;
+  position: relative;
+  top: -0.7rem;
+}
+.marquee .content{
+  display: inline-block;
+  position: relative;
+  padding-right: 0px;
+  white-space: nowrap;
+  animation: kf-marque-animation 12s infinite linear;
+}
+.marquee .content-space{
+  display: inline-block;
+  width: 5em;
+}
+.content>span{
+  margin-right: 10px;
+}

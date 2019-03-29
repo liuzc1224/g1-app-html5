@@ -1,0 +1,100 @@
+
+.header{
+    font-size: .361111rem ;
+    color: #545454;
+}
+.header-money{
+    font-size: .666667rem ;
+    color: #545454 ;
+    margin-top: .513889rem ;
+    padding-bottom: .277778rem ;
+}
+.infoContent{
+    border-bottom : .166667rem solid #eef1f6;
+    width: 100% ;
+}
+.infoLeft ,
+.infoRight{
+    font-size: .416667rem ;
+    color :#545454 ;
+}
+.sectionInfo{
+    width: 100% ;
+    padding: .430556rem 0px;
+    border-bottom: 1px solid #d3d3d3;
+}
+.smallTip{
+    margin-top: .291667rem ;
+    color: #acacac;
+    font-size: .333333rem ;
+}
+.fakeWrap{
+    position: absolute;
+    top:0px;
+    left:0px;
+    height: 1.277778rem;
+    line-height: 1.277778rem;
+    text-indent: .319444rem;
+    color: #acacac;
+    border-radius: 6px;
+    width: 100% !important;
+    max-width: 100% !important;
+    background: none;
+    transition: color .2s ease-in ;
+}
+.acceptWrap{
+    margin-bottom: .5rem ;
+    ion-icon{
+        font-size: 1.6em;
+    }
+}
+.acceptRight{
+    font-size: .355556rem ;
+    color:#acacac ;
+    margin-left: .592222rem ;
+    line-height: .385556rem;
+    span{
+        text-decoration: underline;
+        color: blue;
+        display: block;
+        margin-top: .095556rem;
+    }
+}
+.icoDefault{
+    color: #acacac;
+}
+.icoActive{
+    color:#3573fa;
+}
+.submitBtn{
+    margin: .222222rem ;
+    width: calc(100% - .444444rem);
+}
+.padWrap{
+    width: 100% ;
+    height: 100% !important;
+    position: fixed;
+    top:0px;
+    left:0px;
+    z-index: 99 ;
+    background: rgba(0,0,0,.52) ;
+};
+
+.acceptLeft{
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.cuta{
+    position: absolute;
+    top: .363333rem;
+    right: 0;
+    width: .577778rem;
+    height: .577778rem;
+    background: url(../../assets/imgs/xia.png) no-repeat center;
+    background-size: contain;
+    transition: transform .2s;
+    &.active{
+        transform: rotate(-90deg);
+    }
+}

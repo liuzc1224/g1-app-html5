@@ -1,0 +1,23 @@
+.contrOneWrap{
+    padding: .416667rem;
+}
+.undeline {
+    text-decoration: underline;
+}
+
+.auTit {
+    margin: 0;
+    margin-bottom: .055556rem;
+    font-weight: 900;
+}
+.textCent{
+    text-align: center;
+}
+.signBox{
+    display: flex;
+    margin-top: .277778rem;
+    padding-bottom: .555556rem;
+}
+.signL,.signR{
+    flex: 1;
+}

@@ -1,0 +1,94 @@
+<single-header [hideLeftBtn] = "false" [midTxt]=" 'common.headerMidTxt.a' | translate "></single-header>
+<ion-content class="has-header-view" style="background: #eef1f6;">
+  <div class="home-main">
+    <div class="home-info">
+      <p>{{"homePage.gus" | translate}}</p>
+      <p>3000.00
+        <span style="padding-left: 0.4rem;display: none">7(die)</span>
+      </p>
+
+      
+      <div class="marquee">
+        <span class="content">
+          <span *ngFor = "let item of textList">
+            {{ item }}
+          </span>
+        </span>s
+      </div>
+      <!-- <div class="out-wrap">
+        <p class="inner-lb" *ngFor = "let item of textList ">{{item}}</p>
+      </div> -->
+    </div>
+    <!-- 首页 可申请 -->
+    <div class="home-pos-box" style="position: relative;top: -1rem;" *ngIf=" pageStep == 6 || pageStep == 'frist' ">
+      <h3>{{("homePage.hPand" | translate)[0]}}</h3>
+      <p class="pos-htip">{{("homePage.tPand" | translate)[0]}}</p>
+      <div class="range-list">
+        <range [maxRange]="3000" [pting]="'$'" (valueChange)='valueChanged($event , "money")'></range>
+        <h3>{{("homePage.hPand" | translate)[1]}}</h3>
+        <range [maxRange]="28" [minRange]="7" [scale] = "7" [initMoney] = "7" [excludeMoney] = "21" (valueChange)='valueChanged($event , "days")'></range>
+      </div>
+      <p class="pos-htip bot">{{("homePage.tPand" | translate)[1]}}</p>
+      <button class="common-btn" (click)='btnEvent($event)'>{{("homePage.invstBtnTxt" | translate)}}</button>
+    </div>
+    <!-- 审核中  -->
+    <div class="home-pos-box examining" *ngIf=" pageStep == 1 ">
+      <p class="icon-box">
+        <img src="../../assets/imgs/homePage/examining.png" alt="">
+      </p>
+      <p class="explain-txt">{{("homePage.explainTxt" | translate)[0]}}
+        <br>{{("homePage.explainTxt" | translate)[1]}}</p>
+      <button disabled class="common-btn margin-t75">{{("homePage.examinBtn" | translate)}}</button>
+    </div>
+
+    <!-- 审核中  -->
+    <div class="home-pos-box examining" *ngIf=" pageStep == 2 ">
+      <div class="enchashment">
+        {{("homePage.gus" | translate)[0]}}
+      </div>
+
+      <div class="cashMoney">
+        {{ orderInfo.applyMoney | NumPipe }}
+      </div>
+
+      <div class="loanRate">
+        {{ "homePage.enchashment.rate" | translate }}
+        <span class="rawRate">
+          {{ "homePage.enchashment.rawRate" | translate }}
+        </span>
+        <span class="nowRate">
+          {{ orderInfo.lendRate }}%
+        </span>
+      </div>
+
+      <button class="common-btn enchashmentBtn" (click)='btnEvent()'>{{("homePage.examinBtn" | translate)}}</button>
+      <!-- <p class="icon-box"><img src="../../assets/imgs/homePage/examining.png" alt=""></p>
+        <p class="explain-txt">
+          {{("homePage.explainTxt" | translate)[0]}}<br>{{("homePage.explainTxt" | translate)[1]}}
+        </p> -->
+      <!-- <button class="common-btn margin-t75" (click)='btnEvent()'>{{("homePage.examinBtn" | translate)}}</button> -->
+    </div>
+
+    <!-- 申请拒绝 -->
+    <div class="home-pos-box failed" *ngIf=" pageStep == 12 ">
+      <p class="icon-box">
+        <img src="../../assets/imgs/homePage/examining.png" alt="">
+      </p>
+      <p class="explain-txt">{{("homePage.explainTxt" | translate)[2]}}
+        <br>{{("homePage.explainTxt" | translate)[3]}}</p>
+      <button class="common-btn margin-t75" (click)='btnEvent()'>{{("homePage.failedBtn" | translate)}}</button>
+    </div>
+    <!-- 提现待还款 -->
+    <div class="home-pos-box Repayments" *ngIf=" pageStep === 4 && repayPlan ">
+      <p class="qus">{{("homePage.question" | translate)[0]}}</p>
+      <p class="anser">123123sdsd</p>
+      <p class="qus">{{("homePage.question" | translate)[1]}}</p>
+      <p class="anser">123123sdsd</p>
+      <p class="qus">{{("homePage.question" | translate)[2]}}</p>
+      <p class="anser">
+        {{ repayPlan.planRepaymentDate }}
+      </p>
+      <button class="common-btn margin-t150" (click)='btnEvent()'>{{("homePage.Repaymentsbtn" | translate)}}</button>
+    </div>
+  </div>
+</ion-content>
